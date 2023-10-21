@@ -32,12 +32,14 @@
 					<span class="navbar-toggler-icon"></span>
 				</button>
 
-		
 				<jsp:include page="../../components/menu.jsp">
-					<jsp:param name="home" value="../../index.jsp" />
-					<jsp:param name="reservas" value="./reserva" />
+					<jsp:param name="home" value="./index.jsp" />
+					<jsp:param name="destinos" value="./destinos.jsp" />
+					<jsp:param name="promocoes" value="./promocoes.jsp" />
+					<jsp:param name="contato" value="./contato.jsp" />
+					<jsp:param name="reservas" value="" />
 					<jsp:param name="clientes" value="./cliente" />
-					<jsp:param name="entrar" value="../../entrar.jsp" />
+					<jsp:param name="entrar" value="./entrar.jsp" />
 				</jsp:include>
 
 			</div>
@@ -47,15 +49,14 @@
 	<!-- colocar uma capa maneira aqui-->
 
 	<div class="container" style="padding: 30px;">
-		<h1>Bem-vindo(a), ${cliente.nome}</h1>
-		<h1>Bem-vindo(a), <c:out value="${cliente.nome}" /></h1>
+		<h1>Bem-vindo(a), ${cliente.nome}!</h1>
 		
 		<!--		 colocar  nome doi cliente aqui -->
 		<div
 			style="display: flex; justify-content: center; align-items: center; gap: 5px;">
 
 			<i class="ph ph-ticket" style="font-size: 40px;"></i>
-			<h1 class="text-center">Complete sua Reserva</h1>
+			<h1 class="text-center">Faça sua Reserva</h1>
 		</div>
 
 		<form action="../../reserva-create">
@@ -111,7 +112,7 @@
 					
 <!-- 					fazer um botao tipo 'cadastre-se para criar uma reserva?' -->
 
-				<a href="" class="btn btn-primary">Cadastre-se</a>
+				<a href="" class="btn btn-primary">Gerar Passagem</a>
 			</div>
 
 		</form>

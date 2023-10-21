@@ -75,7 +75,7 @@ public class ClienteServlet extends HttpServlet {
 		cliente.setEmail(request.getParameter("email"));
 		cliente.setTelefone(request.getParameter("telefone"));
 		cliente.setSenha(request.getParameter("senha"));
-		
+
 		clienteDAO.save(cliente);
 		response.sendRedirect("cliente");
 	}

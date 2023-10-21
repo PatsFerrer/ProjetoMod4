@@ -58,29 +58,32 @@
 
 			<!-- caixinha -->
 			<div class="container cadastro-cliente">
-				<form action="../../cliente-create" class="needs-validation"
-							novalidate>
+				<form action="./login" class="needs-validation"
+					novalidate>
 					<div class="row g-3">
 
 						<div class="col-12">
-							<input type="text" class="form-control" id="email"
-								placeholder="Email">
+							<input type="email" class="form-control" id="email"
+								placeholder="Email" name="email" required>
 							<div class="invalid-feedback">Insira um endereço de e-mail
 								válido.</div>
 						</div>
 						<div class="col-12 mb-3">
-							<input type="password" class="form-control" id="email"
-								placeholder="Senha">
+							<input type="password" class="form-control" id="senha"
+								placeholder="Senha" name="senha" required>
 							<div class="invalid-feedback">Insira uma senha válida.</div>
 						</div>
 					</div>
-					<a href="index.html" class="w-100 btn btn-primary btn-lg mb-2"
-						type="button"" >Entrar
-						</button> <a href=" #">Esqueceu a senha?</a>
-						<hr class="my-2">
-						<button class="w-100 btn btn-primary btn-lg btn-criar"
-							type="button" data-bs-toggle="modal" data-bs-target="#cadastro">Criar
-							nova conta</button>
+					<button href="" class="w-100 btn btn-primary btn-lg mb-2"
+						type="submit">Entrar</button>
+					<a href=" #">Esqueceu a senha?</a>
+
+					<hr class="my-2">
+
+					<button class="w-100 btn btn-primary btn-lg btn-criar"
+						type="button" data-bs-toggle="modal" data-bs-target="#cadastro">Criar
+						nova conta</button>
+
 				</form>
 			</div>
 			<!-- caixinha -->
@@ -89,7 +92,7 @@
 
 	</main>
 
-<!-- modal -->
+	<!-- modal -->
 	<div class="modal fade" id="cadastro" tabindex="-1"
 		aria-labelledby="exampleModalLabel" aria-hidden="true">
 		<div class="modal-dialog modal-dialog-centered">
@@ -120,7 +123,7 @@
 							<div class="col-sm-6">
 								<input type="tel" class="form-control" id="telefone"
 									placeholder="Celular" name="telefone" required>
-								<div class="invalid-feedback">Insira um um celular válido.
+								<div class="invalid-feedback">Insira um celular válido.
 								</div>
 							</div>
 
