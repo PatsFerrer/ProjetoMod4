@@ -8,6 +8,7 @@ import java.util.Date;
 import java.util.List;
 
 import connection.ConnectionFactory;
+import model.Cliente;
 import model.Reserva;
 
 public class ReservaDAO {
@@ -50,7 +51,7 @@ public class ReservaDAO {
 	
 		
 	public void update(Reserva reserva) {
-		String sql = "UPDATE reserva SET origem = ?, destino = ?, data_partida = ?, data_chegada" +" WHERE id_reserva = ?";
+		String sql = "UPDATE reserva SET origem = ?, destino = ?, data_partida = ?, data_chegada, id_cliente = ? WHERE id_reserva = ?";
 		
 		Connection conn = null;
 		PreparedStatement pstm = null;
@@ -64,6 +65,8 @@ public class ReservaDAO {
 			pstm.setString(2, reserva.getDestino());			
 			pstm.setDate(3, (java.sql.Date) new Date(reserva.getData_partida().getTime()));			
 			pstm.setDate(4, (java.sql.Date) new Date(reserva.getData_chegada().getTime()));
+			pstm.setInt(5, reserva.getCliente().getId_cliente()); //adcionei isso
+			pstm.setInt(6, reserva.getId_reserva()); 
 					
 			pstm.execute();
 		} catch (Exception e) {
@@ -302,6 +305,62 @@ public boolean hasReservasAtivas(int idCliente) {
 
     return false;
 }
+
+//readById
+	public Reserva readById(int id) {
+		Reserva reserva = new Reserva();
+		
+		String sql = "select * from reserva_cliente WHERE id_reserva = ?";
+
+		Connection conn = null;
+		PreparedStatement pstm = null;
+		ResultSet rset = null;
+
+		try {
+			conn = ConnectionFactory.createConnectionToMySQL();
+
+			pstm = conn.prepareStatement(sql);
+			
+			pstm.setInt(1, id);
+			
+			rset = pstm.executeQuery();
+			
+			rset.next();
+			
+			Cliente cliente = new Cliente();
+			
+			reserva.setId_reserva(rset.getInt("id_reserva"));
+			reserva.setOrigem(rset.getString("origem"));
+            reserva.setDestino(rset.getString("destino"));
+            reserva.setData_partida(rset.getDate("data_partida"));
+            reserva.setData_chegada(rset.getDate("data_chegada"));
+            
+            cliente.setId_cliente(rset.getInt("id_cliente"));
+            cliente.setNome(rset.getString("nome"));
+            cliente.setEmail(rset.getString("email"));
+            cliente.setSenha(rset.getString("senha"));
+            cliente.setTelefone(rset.getString("telefone"));
+            
+            reserva.setCliente(cliente);
+					
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			try {
+				if (pstm != null) {
+					pstm.close();
+				}
+				if (conn != null) {
+					conn.close();
+				}
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+		}
+		return reserva;
+	}
+
+
 
   
 }

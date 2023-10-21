@@ -32,9 +32,12 @@
 					<span class="navbar-toggler-icon"></span>
 				</button>
 
+		
 				<jsp:include page="../../components/menu.jsp">
-					<jsp:param name="home" value="./index.jsp" />
-					<jsp:param name="reservar" value="./src/views/reserva-create.jsp" />
+					<jsp:param name="home" value="../../index.jsp" />
+					<jsp:param name="reservas" value="./reserva" />
+					<jsp:param name="clientes" value="./cliente" />
+					<jsp:param name="entrar" value="../../entrar.jsp" />
 				</jsp:include>
 
 			</div>
@@ -44,7 +47,9 @@
 	<!-- colocar uma capa maneira aqui-->
 
 	<div class="container" style="padding: 30px;">
-		<h1>Bem-vindo, ${cliente.getNome()}</h1>
+		<h1>Bem-vindo(a), ${cliente.nome}</h1>
+		<h1>Bem-vindo(a), <c:out value="${cliente.nome}" /></h1>
+		
 		<!--		 colocar  nome doi cliente aqui -->
 		<div
 			style="display: flex; justify-content: center; align-items: center; gap: 5px;">
@@ -57,7 +62,6 @@
 			<!--verifiar aqui-->
 			<div class="row">
 
-				<!--precisa de name-->
 				<div class="col col-6 col-sm-6">
 					<label for="origem" class="col-form-label"><small>De
 							onde está saindo?</small></label>
@@ -104,13 +108,16 @@
 				<!-- botão levar  pra RESERVA-CREATE - fazer pagina HTML dela e depois JSP-->
 				<button type="submit" class="btn btn-primary">Criar
 					Reservar</button>
-				<a href="../../reserva" class="btn btn-primary">Cancelar</a>
+					
+<!-- 					fazer um botao tipo 'cadastre-se para criar uma reserva?' -->
+
+				<a href="" class="btn btn-primary">Cadastre-se</a>
 			</div>
 
 		</form>
 
 
-		<a href="/cadastro">Voltar para o cadastro</a>
+<!-- 		<a href="/cadastro">Voltar para o cadastro</a> -->
 	</div>
 
 	<footer>
@@ -141,20 +148,7 @@
 		</div>
 	</footer>
 
-	<div id="errorMessage" style="display: none;">
-		<p>${erroMensagem}</p>
-	</div>
 
-	<script>
-		// Verifique se o atributo "erroMensagem" contém uma mensagem de erro
-		var erroMensagem = "${erroMensagem}";
-
-		if (erroMensagem) {
-			// Exiba a mensagem de erro
-			var errorMessage = document.getElementById("errorMessage");
-			errorMessage.style.display = "block";
-		}
-	</script>
 
 	<script
 		src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"

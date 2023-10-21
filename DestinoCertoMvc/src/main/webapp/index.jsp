@@ -37,7 +37,12 @@
 
 				<jsp:include page="./components/menu.jsp">
 					<jsp:param name="home" value="./index.jsp" />
-					<jsp:param name="reservar" value="./src/views/reserva-create.jsp" />
+					<jsp:param name="destinos" value="./destinos.jsp" />
+					<jsp:param name="promocoes" value="./promocoes.jsp" />
+					<jsp:param name="contato" value="./contato.jsp" />
+					<jsp:param name="reservas" value="./reserva" />
+					<jsp:param name="clientes" value="./cliente" />
+					<jsp:param name="entrar" value="./entrar.jsp" />
 				</jsp:include>
 				
 
