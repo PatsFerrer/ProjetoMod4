@@ -129,7 +129,7 @@
 									gastronômica deliciosa.</p>
 								<div class="d-flex justify-content-between align-items-center">
 									<div class="btn-group">
-										<a class="btn btn-primary" href="pagamento.html">Reservar</a>
+										<a class="btn btn-primary" href="./reserva">Reservar</a>
 									</div>
 									<small class="text-muted">Em até 12x</small>
 								</div>
@@ -152,7 +152,7 @@
 									e festivais animados.</p>
 								<div class="d-flex justify-content-between align-items-center">
 									<div class="btn-group">
-										<a class="btn btn-primary" href="pagamento.html">Reservar</a>
+										<a class="btn btn-primary" href="./reserva">Reservar</a>
 									</div>
 									<small class="text-muted">Em até 12x</small>
 								</div>
@@ -175,7 +175,7 @@
 									gastronomia diversificada e povo acolhedor.</p>
 								<div class="d-flex justify-content-between align-items-center">
 									<div class="btn-group">
-										<a class="btn btn-primary" href="pagamento.html">Reservar</a>
+										<a class="btn btn-primary" href="./reserva">Reservar</a>
 									</div>
 									<small class="text-muted">Em até 12x</small>
 								</div>
@@ -198,7 +198,7 @@
 									típicos da região. Cidade vibrante e acolhedora.</p>
 								<div class="d-flex justify-content-between align-items-center">
 									<div class="btn-group">
-										<a class="btn btn-primary" href="pagamento.html">Reservar</a>
+										<a class="btn btn-primary" href="./reserva">Reservar</a>
 									</div>
 									<small class="text-muted">Em até 12x</small>
 								</div>
@@ -219,7 +219,7 @@
 									coloridos e festivais culturais envolventes.</p>
 								<div class="d-flex justify-content-between align-items-center">
 									<div class="btn-group">
-										<a class="btn btn-primary" href="pagamento.html">Reservar</a>
+										<a class="btn btn-primary" href="./reserva">Reservar</a>
 									</div>
 									<small class="text-muted">Em até 12x</small>
 								</div>
@@ -243,7 +243,7 @@
 									Destino perfeito para mergulho.</p>
 								<div class="d-flex justify-content-between align-items-center">
 									<div class="btn-group">
-										<a class="btn btn-primary" href="pagamento.html">Reservar</a>
+										<a class="btn btn-primary" href="./reserva">Reservar</a>
 									</div>
 									<small class="text-muted">Em até 12x</small>
 								</div>
@@ -266,7 +266,7 @@
 									amantes de natureza, esportes aquáticos e tranquilidade.</p>
 								<div class="d-flex justify-content-between align-items-center">
 									<div class="btn-group">
-										<a class="btn btn-primary" href="pagamento.html">Reservar</a>
+										<a class="btn btn-primary" href="./reserva">Reservar</a>
 									</div>
 									<small class="text-muted">Em até 12x</small>
 								</div>
@@ -289,7 +289,7 @@
 									e cultura folclórica cativante. Um destino tropical imperdível.</p>
 								<div class="d-flex justify-content-between align-items-center">
 									<div class="btn-group">
-										<a class="btn btn-primary" href="pagamento.html">Reservar</a>
+										<a class="btn btn-primary" href="./reserva">Reservar</a>
 									</div>
 									<small class="text-muted">Em até 12x</small>
 								</div>
@@ -312,7 +312,7 @@
 									proximidade com belezas naturais como rios e cachoeiras.</p>
 								<div class="d-flex justify-content-between align-items-center">
 									<div class="btn-group">
-										<a class="btn btn-primary" href="pagamento.html">Reservar</a>
+										<a class="btn btn-primary" href="./reserva">Reservar</a>
 									</div>
 									<small class="text-muted">Em até 12x</small>
 								</div>

@@ -33,13 +33,13 @@
 				</button>
 
 				<jsp:include page="../../components/menu.jsp">
-					<jsp:param name="home" value="./index.jsp" />
-					<jsp:param name="destinos" value="./destinos.jsp" />
-					<jsp:param name="promocoes" value="./promocoes.jsp" />
-					<jsp:param name="contato" value="./contato.jsp" />
-					<jsp:param name="reservas" value="" />
-					<jsp:param name="clientes" value="./cliente" />
-					<jsp:param name="entrar" value="./entrar.jsp" />
+					<jsp:param name="home" value="../../index.jsp" />
+					<jsp:param name="destinos" value="../../destinos.jsp" />
+					<jsp:param name="promocoes" value="../../promocoes.jsp" />
+					<jsp:param name="contato" value="../../contato.jsp" />
+					<jsp:param name="reservas" value="../../reserva" />
+					<jsp:param name="clientes" value="../../cliente" />
+					<jsp:param name="entrar" value="../../entrar.jsp" />
 				</jsp:include>
 
 			</div>
@@ -51,7 +51,6 @@
 	<div class="container" style="padding: 30px;">
 		<h1>Bem-vindo(a), ${cliente.nome}!</h1>
 		
-		<!--		 colocar  nome doi cliente aqui -->
 		<div
 			style="display: flex; justify-content: center; align-items: center; gap: 5px;">
 
@@ -59,6 +58,7 @@
 			<h1 class="text-center">Faça sua Reserva</h1>
 		</div>
 
+<!-- setar o id diretamente do login? -->
 		<form action="../../reserva-create">
 			<!--verifiar aqui-->
 			<div class="row">
