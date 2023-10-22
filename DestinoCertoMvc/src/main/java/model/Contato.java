@@ -6,7 +6,7 @@ import dao.ContatoDAO;
 
 
 public class Contato {
-    private int id_contato;
+
     private String nome;
     private String email;
     private String mensagem;
@@ -21,16 +21,7 @@ public class Contato {
         this.mensagem = mensagem;
     }
 
-
-    public int getId_contato() {
-        return id_contato;
-    }
-
-    public void setId_contato(int id_contato) {
-        this.id_contato = id_contato;
-    }
-
-    public String getNome() {
+	public String getNome() {
         return nome;
     }
 

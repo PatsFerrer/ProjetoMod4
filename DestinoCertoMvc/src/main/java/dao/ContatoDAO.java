@@ -66,7 +66,6 @@ public class ContatoDAO {
 			while(rset.next()) {
 				Contato contato = new Contato();
 				
-				contato.setId_contato(rset.getInt("id_contato"));								
 				contato.setNome(rset.getString("nome"));				
 				contato.setEmail(rset.getString("email"));				
 				contato.setMensagem(rset.getString("mensagem"));
