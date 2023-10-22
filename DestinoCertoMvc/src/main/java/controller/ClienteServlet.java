@@ -38,6 +38,14 @@ public class ClienteServlet extends HttpServlet {
 		case "/cliente-create":
 			create(request, response);
 			break;
+			
+		case "/cliente-edit":
+			edit(request, response);
+			break;
+			
+		case "/cliente-update":
+			update(request, response);
+			break;
 
 		case "/cliente-delete":
 			delete(request, response);
@@ -62,7 +70,7 @@ public class ClienteServlet extends HttpServlet {
 	protected void delete(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 
-		int id = Integer.parseInt(request.getParameter("id_cliente")); // ver se aqui é id mesmo
+		int id = Integer.parseInt(request.getParameter("id_cliente"));
 		clienteDAO.deleteById(id);
 
 		response.sendRedirect("cliente");
@@ -79,5 +87,38 @@ public class ClienteServlet extends HttpServlet {
 		clienteDAO.save(cliente);
 		response.sendRedirect("cliente");
 	}
+	
+	protected void edit(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
+		
+		int id = Integer.parseInt(request.getParameter("id_cliente")); //verificar
+		cliente = clienteDAO.readById(id);
+		
+		request.setAttribute("cliente", cliente);
+		
+		RequestDispatcher rd = request.getRequestDispatcher("./views/clientes/update.jsp");
+		rd.forward(request, response);
+	}
+	
+	protected void update(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
+		
+		cliente.setId_cliente(Integer.parseInt(request.getParameter("id_cliente")));
+		cliente.setNome(request.getParameter("nome"));
+		cliente.setEmail(request.getParameter("email"));
+		cliente.setTelefone(request.getParameter("telefone"));
+		cliente.setSenha(request.getParameter("senha"));
+
+		clienteDAO.update(cliente);
+		response.sendRedirect("cliente");
+		
+	}
+	
+	
+	
+	
+	
+	
+	
 
 }

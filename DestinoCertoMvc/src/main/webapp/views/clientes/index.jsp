@@ -91,9 +91,8 @@
 						<td>${c.email}</td>
 						<td>${c.telefone}</td>
 
-						<td><a data-bs-toggle="modal"
-							href="cliente-edit?id_cliente=${c.id_cliente}"
-							class="btn btn-primary" data-bs-target="#editarCliente">Editar</a>
+						<td><a href="cliente-edit?id_cliente=${c.id_cliente}"
+							class="btn btn-primary" >Editar</a>
 							<!-- 							 <button class=" btn btn-primary btn-criar" type="button" data-bs-toggle="modal" -->
 							<!--             data-bs-target="#cadastro">Edt teste</button> -->
 
