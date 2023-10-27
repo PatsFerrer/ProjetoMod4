@@ -38,6 +38,7 @@
 					<jsp:param name="promocoes" value="../../promocoes.jsp" />
 					<jsp:param name="contato" value="../../contato.jsp" />
 					<jsp:param name="reservas" value="../../reserva" />
+					<jsp:param name="passagens" value="../../passagem" />
 					<jsp:param name="clientes" value="../../cliente" />
 					<jsp:param name="entrar" value="../../entrar.jsp" />
 				</jsp:include>
@@ -54,7 +55,7 @@
 		<div
 			style="display: flex; justify-content: center; align-items: center; gap: 5px;">
 
-			<i class="ph ph-ticket" style="font-size: 40px;"></i>
+			<i style="font-size: 40px;" class="ph ph-airplane-in-flight"></i>
 			<h1 class="text-center">Faça sua Reserva</h1>
 		</div>
 

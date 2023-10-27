@@ -41,6 +41,7 @@
 					<jsp:param name="promocoes" value="./promocoes.jsp" />
 					<jsp:param name="contato" value="./contato.jsp" />
 					<jsp:param name="reservas" value="./reserva" />
+					<jsp:param name="passagens" value="./passagem" />
 					<jsp:param name="clientes" value="./cliente" />
 					<jsp:param name="entrar" value="./entrar.jsp" />
 				</jsp:include>
@@ -57,13 +58,15 @@
 		<div
 			style="display: flex; justify-content: center; align-items: center; gap: 5px;">
 
-			<i class="ph ph-ticket" style="font-size: 40px;"></i>
+			<i style="font-size: 40px;" class="ph ph-airplane-in-flight"></i>
 			<div class="container"
 				style="display: flex; align-items: center; justify-content: space-between;">
 				<h1 class="text-center">Reservas</h1>
-				<a class="btn btn-primary ml-auto" data-bs-toggle="modal" href=""
-					class="btn btn-primary" data-bs-target="#cadastro"> Criar
-					Reserva </a>
+
+				<!-- 				colocar href de criar reserva -->
+				<a data-bs-toggle="modal" href="" class="btn btn-primary"
+					data-bs-target="#cadastro"> Criar Reserva </a>
+
 			</div>
 		</div>
 
@@ -76,7 +79,7 @@
 					<th scope="col">Destino</th>
 					<th scope="col">Data de Partida</th>
 					<th scope="col">Data de Chegada</th>
-					<!-- 					<th scope="col">Cliente</th> id ou nome do cliente aqui?  -->
+					<th scope="col">Cliente</th> 
 					<th scope="col">Ações</th>
 				</tr>
 			</thead>
@@ -89,31 +92,131 @@
 						<td>${r.destino}</td>
 						<td>${r.data_partida}</td>
 						<td>${r.data_chegada}</td>
-						<%-- 						<td>${r.id_cliente}</td> --%>
+						<td>${r.cliente.nome}</td>
 
-						<td><a data-bs-toggle="modal"
-							href="reserva-edit?id_reserva=${r.id_reserva}"
-							class="btn btn-primary">Editar</a> <!-- 							 <button class=" btn btn-primary btn-criar" type="button" data-bs-toggle="modal" -->
-							<!--             data-bs-target="#cadastro">Edt teste</button> -->
-
-							<a href="reserva-delete?id_reserva=${r.id_reserva}"
+						<td><button data-bs-target="#editarReserva${r.id_reserva}"
+								data-bs-toggle="modal" class="btn btn-primary">Editar</button> <a
+							href="reserva-delete?id_reserva=${r.id_reserva}"
 							onclick="return confirm('Deseja Excluir a Reserva ${r.id_reserva}?')"
-							class="btn btn-danger">Excluir</a></td>
+							class="btn btn-danger">Excluir</a> <%-- 							ver se é update ou para href ./passagem-getCreate?id_reserva=${r.id_reserva}" --%>
+
+							<a class="btn btn-primary ml-auto"
+							href="./passagem-getCreate?id_reserva=${r.id_reserva}"
+							class="btn btn-primary"> Gerar Passagem </a></td>
+
 
 					</tr>
+
+					<!-- modal editar -->
+					<div class="modal fade" id="editarReserva${r.id_reserva}"
+						tabindex="-1" aria-labelledby="exampleModalLabel"
+						aria-hidden="true">
+						<div class="modal-dialog modal-dialog-centered">
+							<div class="modal-content">
+								<div class="modal-header">
+									<h1 class="modal-title fs-5" id="exampleModalLabel">Editar
+										Reserva</h1>
+									<button type="button" class="btn-close" data-bs-dismiss="modal"
+										aria-label="Close"></button>
+								</div>
+
+								<div class="modal-body">
+
+									<form action="reserva-update" class="needs-validation"
+										novalidate>
+
+										<div class="row ">
+
+											<div hidden class="col-12">
+												<label for="id_cliente" class="col-form-label"><small>ID
+														da Reserva</small></label>
+												<div class="col-auto">
+													<input type="text" id="id_reserva" class="form-control"
+														name="id_reserva" aria-describedby="id_reserva"
+														value="${r.id_reserva}">
+												</div>
+											</div>
+											
+											<div hidden class="col-12">
+
+												<label for="origem" class="col-form-label"><small>ID Cliente</small></label>
+												<div class="col-auto">
+													<input  type="text" id="id_cliente" class="form-control"
+														name="id_cliente" aria-describedby="id_cliente"
+														value="${r.cliente.id_cliente}">
+												</div>
+
+											</div>
+
+
+											<div class="col-12">
+
+												<label for="origem" class="col-form-label"><small>De
+														onde está saindo?</small></label>
+												<div class="col-auto">
+													<input type="text" id="origem" class="form-control"
+														name="origem" aria-describedby="origem"
+														value="${r.origem}">
+												</div>
+
+											</div>
+
+											<div class="col-12">
+
+												<label for="destino" class="col-form-label"><small>Para
+														onde você vai?</small></label>
+												<div class="col-auto">
+													<input type="text" id="destino" class="form-control"
+														name="destino" aria-describedby="destino"
+														value="${r.destino}">
+												</div>
+
+											</div>
+
+
+
+											<label for="data-ida" class="col-form-label"><small>Escolha
+													as datas</small></label>
+											<div class="col-sm-6">
+
+												<div class="col mb-1">
+													<input type="date" id="data-partida" class="form-control"
+														name="data-partida" 
+														value="${r.data_partida}">
+												</div>
+
+											</div>
+
+											<div class="col-sm-6 mb-3">
+
+												<div class="col mb-1">
+													<input type="date" id="data-chegada" class="form-control"
+														name="data-chegada"
+														value="${r.data_chegada}">
+												</div>
+
+											</div>
+
+										</div>
+										<input type="submit" class="w-100 btn btn-primary btn-lg"
+											value="Reservar">
+
+									</form>
+
+								</div>
+
+							</div>
+						</div>
+					</div>
+					<!-- fim do modal -->
+
+
 				</jstl:forEach>
 
 			</tbody>
 		</table>
 
-
-
-
-
-
-
-
-		<!-- modal -->
+		<!-- modal CRIAR-->
 		<div class="modal fade" id="cadastro" tabindex="-1"
 			aria-labelledby="exampleModalLabel" aria-hidden="true">
 			<div class="modal-dialog modal-dialog-centered">
@@ -166,13 +269,14 @@
 									</div>
 								</div>
 
+
 								<label for="data-ida" class="col-form-label"><small>Escolha
 										as datas</small></label>
 								<div class="col-sm-6">
 
 									<div class="col mb-1">
-										<input type="date" id="data-ida" class="form-control"
-											name="data-ida" aria-describedby="data-ida"
+										<input type="date" id="data-partida" class="form-control"
+											name="data-partida" aria-describedby="data-partida"
 											value="${reserva.data_partida}">
 									</div>
 
@@ -181,8 +285,8 @@
 								<div class="col-sm-6 mb-3">
 
 									<div class="col mb-1">
-										<input type="date" id="data-volta" class="form-control"
-											name="data-volta" aria-describedby="data-volta"
+										<input type="date" id="data-chegada" class="form-control"
+											name="data-chegada" aria-describedby="data-chegada"
 											value="${reserva.data_chegada}">
 									</div>
 
@@ -191,12 +295,7 @@
 							</div>
 							<input type="submit" class="w-100 btn btn-primary btn-lg"
 								value="Reservar">
-							<!-- 							<a href="./" class="w-100 btn btn-primary btn-lg" type="button" -->
-							<!-- 								data-bs-toggle="modal" data-bs-target="#bemVindo">Confirmar -->
-							<!-- 								alteração</a> -->
-							<!-- 							<button class="w-100 btn btn-primary btn-lg" type="button" -->
-							<!-- 								data-bs-toggle="modal" data-bs-target="#bemVindo">Confirmar -->
-							<!-- 								alteração</button> -->
+
 						</form>
 
 					</div>
@@ -210,7 +309,7 @@
 
 
 
-		<a href="/cadastro">Voltar para o cadastro</a>
+
 	</div>
 
 	<footer>

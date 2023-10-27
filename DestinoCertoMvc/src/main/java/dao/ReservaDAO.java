@@ -4,7 +4,7 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.util.ArrayList;
-import java.util.Date;
+import java.sql.Date;
 import java.util.List;
 
 import connection.ConnectionFactory;
@@ -51,7 +51,7 @@ public class ReservaDAO {
 	
 		
 	public void update(Reserva reserva) {
-		String sql = "UPDATE reserva SET origem = ?, destino = ?, data_partida = ?, data_chegada, id_cliente = ? WHERE id_reserva = ?";
+		String sql = "UPDATE reserva SET origem = ?, destino = ?, data_partida = ?, data_chegada = ?, id_cliente = ? WHERE id_reserva = ?";
 		
 		Connection conn = null;
 		PreparedStatement pstm = null;
@@ -63,8 +63,9 @@ public class ReservaDAO {
 			
 			pstm.setString(1, reserva.getOrigem());			
 			pstm.setString(2, reserva.getDestino());			
-			pstm.setDate(3, (java.sql.Date) new Date(reserva.getData_partida().getTime()));			
-			pstm.setDate(4, (java.sql.Date) new Date(reserva.getData_chegada().getTime()));
+			pstm.setDate(3, new Date(reserva.getData_partida().getTime()));
+			pstm.setDate(4, new Date(reserva.getData_chegada().getTime()));
+
 			pstm.setInt(5, reserva.getCliente().getId_cliente()); //adcionei isso
 			pstm.setInt(6, reserva.getId_reserva()); 
 					
@@ -137,6 +138,7 @@ public class ReservaDAO {
 			rset = pstm.executeQuery();
 			
 			while(rset.next()) {
+				ClienteDAO clienteDAO = new ClienteDAO();
 				Reserva reserva = new Reserva();
 				
 				reserva.setId_reserva(rset.getInt("id_reserva"));				
@@ -144,6 +146,7 @@ public class ReservaDAO {
 				reserva.setDestino(rset.getString("destino"));				
 				reserva.setData_partida(rset.getDate("data_partida"));				
 				reserva.setData_chegada(rset.getDate("data_chegada"));
+				reserva.setCliente(clienteDAO.readById(rset.getInt("id_cliente")));
 				
 				
 				reservas.add(reserva);

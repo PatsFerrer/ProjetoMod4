@@ -43,6 +43,7 @@
 					<jsp:param name="promocoes" value="./promocoes.jsp" />
 					<jsp:param name="contato" value="./contato.jsp" />
 					<jsp:param name="reservas" value="./reserva" />
+					<jsp:param name="passagens" value="./passagem" />
 					<jsp:param name="clientes" value="./cliente" />
 					<jsp:param name="entrar" value="./entrar.jsp" />
 				</jsp:include>
@@ -70,23 +71,25 @@
 			<div class="row">
 				<div class="col-md col-lg">
 
-<!-- 					<div class="mensagem-sucesso"> -->
-<%-- 						<c:if test="${not empty mensagem}"> --%>
-<%--          			   ${mensagem} --%>
-<%--       			  		</c:if> --%>
-<!-- 					</div> -->
+					<!-- 					<div class="mensagem-sucesso"> -->
+					<%-- 						<c:if test="${not empty mensagem}"> --%>
+					<%--          			   ${mensagem} --%>
+					<%--       			  		</c:if> --%>
+					<!-- 					</div> -->
 
 
-<%
-	String mensagem = (String) request.getAttribute("mensagem");
-	if (mensagem != null) {
-	%>
-	<div class="mensagem-sucesso">
-		<%=mensagem%>
-	</div>
-	<%
-	}
-	%>
+					<%
+						String mensagem = (String) request.getAttribute("mensagem");
+						if (mensagem != null) {
+					%>
+					
+					<div class="mensagem-sucesso">
+						<%=mensagem%>
+					</div>
+					
+					<%
+						}
+					%>
 
 
 

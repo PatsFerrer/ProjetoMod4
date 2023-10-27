@@ -8,6 +8,7 @@ import java.util.Date;
 import java.util.List;
 
 import connection.ConnectionFactory;
+import model.Cliente;
 import model.Passagem;
 import model.Reserva;
 
@@ -24,12 +25,12 @@ public class PassagemDAO {
 	        pstm = conn.prepareStatement(sql);
 
 	        pstm.setDouble(1, passagem.getPreco());
-	        pstm.setInt(2, passagem.getId_reserva());
+	        pstm.setInt(2, passagem.getReserva().getId_reserva());
 	        pstm.setDate(3, new java.sql.Date(passagem.getData_emissao().getTime()));
 	        pstm.setInt(4, passagem.getAssento());
 
-
 	        pstm.execute();
+	        
 	    } catch (Exception e) {
 	        e.printStackTrace();
 	    } finally {
@@ -61,7 +62,7 @@ public class PassagemDAO {
 			pstm = conn.prepareStatement(sql);
 
 			pstm.setDouble(1, passagem.getPreco());
-			pstm.setInt(2, passagem.getId_reserva());
+			pstm.setInt(2, passagem.getReserva().getId_reserva());
 			pstm.setDate(3, (java.sql.Date) new Date(passagem.getData_emissao().getTime()));
 			pstm.setInt(4, passagem.getAssento());
 
@@ -85,7 +86,7 @@ public class PassagemDAO {
 
 
 	public void removeById(int id) {
-		String sql = "DELETE FROM passagem WHERE id = ?";
+		String sql = "DELETE FROM passagem WHERE id_passagem = ?";
 
 		Connection conn = null;
 		PreparedStatement pstm = null;
@@ -134,7 +135,8 @@ public class PassagemDAO {
 				Passagem passagem = new Passagem();
 				passagem.setId_passagem(rset.getInt("id_passagem"));
 				passagem.setPreco(rset.getDouble("preco"));
-				passagem.setId_reserva(rset.getInt("id_reserva"));
+//				passagem.setId_reserva(rset.getInt("id_reserva"));
+				//ver se falta algo aqui
 				passagem.setData_emissao(rset.getDate("data_emissao"));
 				passagem.setAssento(rset.getInt("assento"));
 				passagens.add(passagem);
@@ -160,14 +162,76 @@ public class PassagemDAO {
 	}
 
 
+//	public List<Passagem> listarTodasPassagens() {
+//	    String sql = "SELECT p.*, r.data_partida, r.data_chegada, c.nome AS nome_cliente " +
+//	                 "FROM passagem p " +
+//	                 "INNER JOIN reserva r ON p.id_reserva = r.id_reserva " +
+//	                 "INNER JOIN cliente c ON r.id_cliente = c.id_cliente";
+//	    
+//	    List<Passagem> passagens = new ArrayList<>();
+//	    
+//	    Reserva reserva = new Reserva();
+//	    Connection conn = null;
+//	    PreparedStatement pstm = null;
+//	    ResultSet rset = null;
+//	    
+//	    try {
+//	        conn = ConnectionFactory.createConnectionToMySQL();
+//	        pstm = conn.prepareStatement(sql);
+//	        rset = pstm.executeQuery();
+//	    
+//	        while (rset.next()) {
+//	            Passagem passagem = new Passagem();
+//	            Cliente cliente = new Cliente();
+//	            
+//	            passagem.setId_passagem(rset.getInt("id_passagem"));
+//	            passagem.setPreco(rset.getDouble("preco"));
+//	            passagem.setData_emissao(rset.getDate("data_emissao"));
+//	            passagem.setAssento(rset.getInt("assento"));
+//	            
+//	            reserva.setId_reserva(rset.getInt("id_reserva"));
+//	            reserva.setData_partida(rset.getDate("data_partida"));
+//	            reserva.setData_chegada(rset.getDate("data_chegada"));
+////	            reserva.setOrigem(rset.getString("origem"));
+//	            
+//	            cliente.setNome(rset.getString("nome_cliente")); //talvez aqui seja so 'nome'
+//	            
+//	            passagem.setReserva(reserva);
+//	            passagem.setCliente(cliente);
+//	            
+//
+//	            passagens.add(passagem);
+//	        }
+//	    } catch (Exception e) {
+//	        e.printStackTrace();
+//	    } finally {
+//	        try {
+//	            if (rset != null) {
+//	                rset.close();
+//	            }
+//	            if (pstm != null) {
+//	                pstm.close();
+//	            }
+//	            if (conn != null) {
+//	                conn.close();
+//	            }
+//	        } catch (Exception e) {
+//	            e.printStackTrace();
+//	        }
+//	    }
+//	    return passagens;
+//	}
+	
+	
 	public List<Passagem> listarTodasPassagens() {
-	    String sql = "SELECT p.*, r.data_partida, r.data_chegada, c.nome AS nome_cliente " +
+	    String sql = "SELECT p.*, r.data_partida, r.data_chegada, r.origem, r.destino, c.nome AS nome_cliente " +
 	                 "FROM passagem p " +
 	                 "INNER JOIN reserva r ON p.id_reserva = r.id_reserva " +
 	                 "INNER JOIN cliente c ON r.id_cliente = c.id_cliente";
 	    
 	    List<Passagem> passagens = new ArrayList<>();
 	    
+	    Reserva reserva = new Reserva();
 	    Connection conn = null;
 	    PreparedStatement pstm = null;
 	    ResultSet rset = null;
@@ -179,11 +243,24 @@ public class PassagemDAO {
 	    
 	        while (rset.next()) {
 	            Passagem passagem = new Passagem();
+	            Cliente cliente = new Cliente();
+	            
 	            passagem.setId_passagem(rset.getInt("id_passagem"));
 	            passagem.setPreco(rset.getDouble("preco"));
-	            passagem.setId_reserva(rset.getInt("id_reserva"));
 	            passagem.setData_emissao(rset.getDate("data_emissao"));
 	            passagem.setAssento(rset.getInt("assento"));
+	            
+	            reserva.setId_reserva(rset.getInt("id_reserva"));
+	            reserva.setData_partida(rset.getDate("data_partida"));
+	            reserva.setData_chegada(rset.getDate("data_chegada"));
+	            reserva.setOrigem(rset.getString("origem"));
+	            reserva.setDestino(rset.getString("destino"));
+	            
+	            cliente.setNome(rset.getString("nome_cliente")); //talvez aqui seja so 'nome'
+	            
+	            passagem.setReserva(reserva);
+	            passagem.setCliente(cliente);
+	            
 
 	            passagens.add(passagem);
 	        }
@@ -264,6 +341,57 @@ public class PassagemDAO {
 
 	    return reserva;
 	}
+	
+	
+	// readById
+			public Passagem readById(int id) {
+				Passagem passagem = new Passagem();
+				String sql = "select * from passagem WHERE id_passagem = ?";
+
+				Connection conn = null;
+				PreparedStatement pstm = null;
+				ResultSet rset = null;
+
+				try {
+					conn = ConnectionFactory.createConnectionToMySQL();
+
+					pstm = conn.prepareStatement(sql);
+					
+					pstm.setInt(1, id);
+					
+					rset = pstm.executeQuery();
+					
+					rset.next();
+					
+					Reserva reserva = new Reserva();
+					
+					passagem.setId_passagem(rset.getInt("id_passagem"));
+					passagem.setPreco(rset.getDouble("preco"));
+					passagem.setData_emissao(rset.getDate("data_emissao"));
+					passagem.setAssento(rset.getInt("assento"));
+					
+					reserva.setId_reserva(rset.getInt("id_reserva"));
+					
+					passagem.setReserva(reserva);
+				
+					
+
+				} catch (Exception e) {
+					e.printStackTrace();
+				} finally {
+					try {
+						if (pstm != null) {
+							pstm.close();
+						}
+						if (conn != null) {
+							conn.close();
+						}
+					} catch (Exception e) {
+						e.printStackTrace();
+					}
+				}
+				return passagem;
+			}
 
 		
 }

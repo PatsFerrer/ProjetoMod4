@@ -38,6 +38,7 @@
 					<jsp:param name="promocoes" value="./promocoes.html" />
 					<jsp:param name="contato" value="./contato.jsp" />
 					<jsp:param name="reservas" value="./reserva" />
+					<jsp:param name="passagens" value="./passagem" />
 					<jsp:param name="clientes" value="./cliente" />
 					<jsp:param name="entrar" value="./entrar.jsp" />
 				</jsp:include>

@@ -11,27 +11,54 @@ import dao.ReservaDAO;
 public class Passagem {
 	private int id_passagem;
     private double preco;
-    private int id_reserva;
     private Date data_emissao;
     private int assento;
-
-   
-    public Passagem() {
-        
-    }
-
     
-	public Passagem(int id_passagem, double preco, int id_reserva, Date data_emissao, int assento, Date data_partida,
-			Date data_chegada, String nome_cliente) {
+    private Reserva reserva;
+    private Cliente cliente;
+    
+	public Passagem(int id_passagem, double preco, Date data_emissao, int assento, Reserva reserva, Cliente cliente) {
 		super();
 		this.id_passagem = id_passagem;
 		this.preco = preco;
-		this.id_reserva = id_reserva;
 		this.data_emissao = data_emissao;
 		this.assento = assento;
+		this.reserva = reserva;
+		this.cliente = cliente;
 	}
 	
-	
+	public Passagem(double preco, Date data_emissao, int assento, Reserva reserva, Cliente cliente) {
+		super();
+		this.preco = preco;
+		this.data_emissao = data_emissao;
+		this.assento = assento;
+		this.reserva = reserva;
+		this.cliente = cliente;
+	}
+
+	public Passagem() {
+        
+    }
+
+	public Passagem(int id_passagem, double preco, Date data_emissao, int assento, Reserva reserva) {
+		super();
+		this.id_passagem = id_passagem;
+		this.preco = preco;
+		this.data_emissao = data_emissao;
+		this.assento = assento;
+		this.reserva = reserva;
+	}
+
+	public Passagem(double preco, Date data_emissao, int assento, Reserva reserva) {
+		super();
+		this.preco = preco;
+		this.data_emissao = data_emissao;
+		this.assento = assento;
+		this.reserva = reserva;
+	}
+
+
+
 	public int getId_passagem() {
 		return id_passagem;
 	}
@@ -44,16 +71,8 @@ public class Passagem {
 		return preco;
 	}
 
-	public void setPreco(double preco) {
-		this.preco = preco;
-	}
-
-	public int getId_reserva() {
-		return id_reserva;
-	}
-
-	public void setId_reserva(int id_reserva) {
-		this.id_reserva = id_reserva;
+	public Double setPreco(double preco) {
+		return this.preco = preco;
 	}
 
 	public Date getData_emissao() {
@@ -72,7 +91,23 @@ public class Passagem {
 		this.assento = assento;
 	}
 
+	public Reserva getReserva() {
+		return reserva;
+	}
 
+	public void setReserva(Reserva reserva) {
+		this.reserva = reserva;
+	}
+	
+	public void setCliente(Cliente cliente) {
+		this.cliente = cliente;
+		
+	}
+
+	public Cliente getCliente() {
+		return cliente;
+	}
+	
 	public static void gerarPassagem(Scanner scanner, PassagemDAO passagemDAO, ReservaDAO reservaDAO, int id_reserva) {
 
 	    if (reservaDAO.reservaExists(id_reserva)) {
@@ -86,13 +121,15 @@ public class Passagem {
 	        int assento = scanner.nextInt();
 	        scanner.nextLine();
 
-	        passagem.setData_emissao(new Date());
-
-	        passagem.setPreco(preco);
-	        passagem.setId_reserva(id_reserva);
 	        passagem.setAssento(assento);
-
-	        passagemDAO.save(passagem);
+	        passagem.setData_emissao(new Date());
+	        passagem.setPreco(preco);
+	        
+	        Reserva reserva = reservaDAO.readById(id_reserva);
+	        
+	        Passagem passagem1 = new Passagem(preco, new Date(), assento, reserva); //ver se isso funciona
+	        
+	        passagemDAO.save(passagem1);
 
 	        System.out.println("Passagem criada com sucesso!");
 	    } else {
@@ -119,9 +156,9 @@ public class Passagem {
 	            System.out.println("Preço: " + passagem.getPreco());
 	            System.out.println("Assento: " + passagem.getAssento());
 	            System.out.println("Data de Emissão: " + dateFormat.format(passagem.getData_emissao()));
-	            System.out.println("ID da Reserva: " + passagem.getId_reserva());
+	            System.out.println("ID da Reserva: " + passagem.getReserva().getId_reserva());
 	            
-	            Reserva reserva = passagemDAO.getReservaByPassagem(passagem.getId_reserva());
+	            Reserva reserva = passagemDAO.getReservaByPassagem(passagem.getReserva().getId_reserva());
 	            if (reserva != null) {
 	                System.out.println("Origem: " + reserva.getOrigem());
 	                System.out.println("Destino: " + reserva.getDestino());
@@ -133,5 +170,7 @@ public class Passagem {
 	        }
 	    }
 	}
+
+	
 		    
 }
