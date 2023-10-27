@@ -76,7 +76,6 @@
 						<th scope="col">Id</th>
 						<th scope="col">Cliente</th>
 						<th scope="col">Data Emissão</th>
-						<!-- talvez eu tire isso -->
 						<th scope="col">Preço</th>
 						<th scope="col">Data Partida</th>
 						<th scope="col">Data Retorno</th>
@@ -114,65 +113,6 @@
 				</tbody>
 			</table>
 		</div>
-
-
-
-
-
-
-
-		<!-- acho melhor tirar esse modal -->
-		<!-- modal -->
-		<!-- 		<div class="modal fade" id="cadastro" tabindex="-1" -->
-		<!-- 			aria-labelledby="exampleModalLabel" aria-hidden="true"> -->
-		<!-- 			<div class="modal-dialog modal-dialog-centered"> -->
-		<!-- 				<div class="modal-content"> -->
-		<!-- 					<div class="modal-header"> -->
-		<!-- 						<h1 class="modal-title fs-5" id="exampleModalLabel">Passagem</h1> -->
-		<!-- 						<button type="button" class="btn-close" data-bs-dismiss="modal" -->
-		<!-- 							aria-label="Close"></button> -->
-		<!-- 					</div> -->
-
-		<!-- 					<div class="modal-body"> -->
-
-		<!-- 						<form action="./cliente-create" class="needs-validation"> -->
-		<!-- 							<div class="row g-3"> -->
-		<!-- 								<div class="col-12"> -->
-		<!-- 									<input type="text" class="form-control" id="nome" -->
-		<!-- 										placeholder="Nome" name="nome" value="" required> -->
-		<!-- 									<div class="invalid-feedback">Nome válido é obrigatório.</div> -->
-		<!-- 								</div> -->
-
-		<!-- 								<div class="col-12"> -->
-		<!-- 									<input type="email" class="form-control" id="email" -->
-		<!-- 										placeholder="E-mail" name="email" required> -->
-		<!-- 									<div class="invalid-feedback">Insira um endereço de -->
-		<!-- 										e-mail válido.</div> -->
-		<!-- 								</div> -->
-
-		<!-- 								<div class="col-sm-6"> -->
-		<!-- 									<input type="tel" class="form-control" id="telefone" -->
-		<!-- 										placeholder="Celular" name="telefone" required> -->
-		<!-- 									<div class="invalid-feedback">Insira um um celular -->
-		<!-- 										válido.</div> -->
-		<!-- 								</div> -->
-
-		<!-- 								<div class="col-sm-6 mb-3"> -->
-		<!-- 									<input type="password" class="form-control" id="senha" -->
-		<!-- 										placeholder="Nova senha" name="senha" required> -->
-		<!-- 									<div class="invalid-feedback">Insira uma senha válida.</div> -->
-		<!-- 								</div> -->
-
-		<!-- 							</div> -->
-		<!-- 							<button class="w-100 btn btn-primary btn-lg" type="submit">Cadastrar</button> -->
-		<!-- 						</form> -->
-
-		<!-- 					</div> -->
-
-		<!-- 				</div> -->
-		<!-- 			</div> -->
-		<!-- 		</div> -->
-		<!-- fim do modal -->
 
 
 

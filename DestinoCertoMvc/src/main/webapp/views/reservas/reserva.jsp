@@ -17,7 +17,7 @@
 <title>Destino Certo - Reservas</title>
 </head>
 
-<body>
+<body class="min-vh-100 d-flex flex-column justify-content-between">
 
 	<header>
 		<nav class="navbar navbar-expand-md navbar-dark">
