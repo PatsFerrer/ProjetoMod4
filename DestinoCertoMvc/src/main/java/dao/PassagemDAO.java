@@ -231,7 +231,6 @@ public class PassagemDAO {
 	    
 	    List<Passagem> passagens = new ArrayList<>();
 	    
-	    Reserva reserva = new Reserva();
 	    Connection conn = null;
 	    PreparedStatement pstm = null;
 	    ResultSet rset = null;
@@ -244,6 +243,7 @@ public class PassagemDAO {
 	        while (rset.next()) {
 	            Passagem passagem = new Passagem();
 	            Cliente cliente = new Cliente();
+	            Reserva reserva = new Reserva();
 	            
 	            passagem.setId_passagem(rset.getInt("id_passagem"));
 	            passagem.setPreco(rset.getDouble("preco"));

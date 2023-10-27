@@ -69,7 +69,7 @@
 					Cliente </a>
 			</div>
 		</div>
-
+<div class="overflow-x-auto">
 		<table class="table table-striped">
 
 			<thead>
@@ -108,7 +108,7 @@
 
 			</tbody>
 		</table>
-
+</div>
 
 
 

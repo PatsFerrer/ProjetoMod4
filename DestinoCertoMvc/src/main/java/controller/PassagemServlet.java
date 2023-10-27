@@ -1,7 +1,6 @@
 package controller;
 
 import java.io.IOException;
-import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.List;
@@ -64,18 +63,8 @@ public class PassagemServlet extends HttpServlet {
 			break;
 
 		case "/passagem-update":
-			try {
 				update(request, response);
-			} catch (ServletException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			} catch (IOException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			} catch (ParseException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			}
+			
 			break;
 
 		default:
@@ -150,7 +139,7 @@ public class PassagemServlet extends HttpServlet {
 	}
 
 	protected void update(HttpServletRequest request, HttpServletResponse response)
-			throws ServletException, IOException, ParseException {
+			throws ServletException, IOException {
 
 		passagem.setId_passagem(Integer.parseInt(request.getParameter("id_passagem")));
 		passagem.setPreco(Double.parseDouble(request.getParameter("preco")));
@@ -163,9 +152,12 @@ public class PassagemServlet extends HttpServlet {
 		String dataEmissaoStr = request.getParameter("data_emissao");
 
 		SimpleDateFormat sdfDataEmissao = new SimpleDateFormat("yyyy-MM-dd");
-
-		Date dataEmissao = sdfDataEmissao.parse(dataEmissaoStr);
-		passagem.setData_emissao(dataEmissao);
+		try {
+			Date dataEmissao = sdfDataEmissao.parse(dataEmissaoStr);
+			passagem.setData_emissao(dataEmissao);
+			
+		} catch (Exception e) {
+		}
 
 		passagemDAO.update(passagem);
 		response.sendRedirect("passagem");

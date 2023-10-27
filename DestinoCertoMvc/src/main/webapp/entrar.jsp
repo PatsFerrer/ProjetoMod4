@@ -59,7 +59,7 @@
 
 			<!-- caixinha -->
 			<div class="container cadastro-cliente">
-				<form action="./login" class="needs-validation"
+				<form action="" class="needs-validation"
 					novalidate>
 					<div class="row g-3">
 
