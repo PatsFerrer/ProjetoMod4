@@ -116,9 +116,7 @@ public class ReservaServlet extends HttpServlet {
 			}
 
 		} catch (NumberFormatException e) {
-			// Lidar com o caso em que o ID do cliente não é um número válido
-			// Por exemplo, redirecione para uma página de erro ou exiba uma mensagem de
-			// erro.
+			System.out.println(e);
 		}
 
 	}

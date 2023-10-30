@@ -12,6 +12,19 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import com.itextpdf.awt.geom.Rectangle;
+import com.itextpdf.text.BaseColor;
+import com.itextpdf.text.Document;
+import com.itextpdf.text.Element;
+import com.itextpdf.text.Font;
+import com.itextpdf.text.FontFactory;
+import com.itextpdf.text.Image;
+import com.itextpdf.text.Paragraph;
+import com.itextpdf.text.Phrase;
+import com.itextpdf.text.pdf.PdfPCell;
+import com.itextpdf.text.pdf.PdfPTable;
+import com.itextpdf.text.pdf.PdfWriter;
+
 import dao.ClienteDAO;
 import dao.PassagemDAO;
 import dao.ReservaDAO;
@@ -20,7 +33,7 @@ import model.Passagem;
 import model.Reserva;
 
 @WebServlet({ "/passagem", "/passagem-create", "/passagem-edit", "/passagem-update", "/passagem-delete",
-		"/passagem-getCreate" })
+		"/passagem-getCreate", "/report" })
 public class PassagemServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
@@ -63,8 +76,13 @@ public class PassagemServlet extends HttpServlet {
 			break;
 
 		case "/passagem-update":
-				update(request, response);
-			
+			update(request, response);
+
+			break;
+
+		case "/report":
+			gerarPassagem(request, response);
+
 			break;
 
 		default:
@@ -155,7 +173,7 @@ public class PassagemServlet extends HttpServlet {
 		try {
 			Date dataEmissao = sdfDataEmissao.parse(dataEmissaoStr);
 			passagem.setData_emissao(dataEmissao);
-			
+
 		} catch (Exception e) {
 		}
 
@@ -172,5 +190,118 @@ public class PassagemServlet extends HttpServlet {
 
 		response.sendRedirect("passagem");
 	}
+
+	// Gerar passagem em PDF
+	protected void gerarPassagem(HttpServletRequest request, HttpServletResponse response)
+	        throws ServletException, IOException {
+
+	    int passagemId = Integer.parseInt(request.getParameter("id_passagem")); // Obtenha o ID da passagem
+
+	    Document documento = new Document();
+
+	    try {
+	        // Configurar o tipo de conteúdo
+	        response.setContentType("application/pdf");
+
+	        // Definir o nome do documento
+	        response.addHeader("Content-Disposition", "inline; filename=passagem.pdf");
+
+	        // Criar o documento
+	        PdfWriter.getInstance(documento, response.getOutputStream());
+
+	        // Abrir o documento para gerar o conteúdo
+	        documento.open();
+
+	        // Adicionar um logotipo ou imagem
+	        Image logo = Image.getInstance(getServletContext().getRealPath("src/imagens/destinoCertoLogo.png"));
+
+	        logo.setAlignment(Element.ALIGN_CENTER);
+	        logo.scaleAbsolute(100, 50); // Ajuste o tamanho da imagem conforme necessário
+	        documento.add(logo);
+
+	        // Adicionar um título
+	        Font titleFont = FontFactory.getFont(FontFactory.HELVETICA_BOLD, 24, BaseColor.BLACK);
+	        Paragraph title = new Paragraph("Passagem Aérea", titleFont);
+	        title.setAlignment(Element.ALIGN_CENTER);
+	        title.setSpacingAfter(10);
+	        documento.add(title);
+
+	        // Configurar a fonte para o texto
+	        Font font = FontFactory.getFont(FontFactory.HELVETICA_BOLD, 12, BaseColor.BLACK);
+
+	        // Crie uma tabela para o layout personalizado
+	        PdfPTable tabela = new PdfPTable(2); // 2 colunas
+	        tabela.setWidthPercentage(100);
+
+	        // Adicione bordas à tabela
+	        tabela.getDefaultCell().setBorder(PdfPCell.BOX);
+
+	        // Configure a cor de fundo das células do título
+	        tabela.getDefaultCell().setBackgroundColor(BaseColor.GRAY);
+
+	        // Defina a fonte para o título
+	        tabela.getDefaultCell().setHorizontalAlignment(Element.ALIGN_CENTER);
+	        tabela.getDefaultCell().setColspan(2);
+
+	        // Buscar a passagem com o ID especificado
+	        Passagem passagem = passagemDAO.readPassagemById(passagemId);
+
+	        // Célula 1 - Cliente
+	        PdfPCell cellCliente = new PdfPCell(new Phrase("Cliente: " + passagem.getCliente().getNome(), font));
+	        cellCliente.setBorder(PdfPCell.NO_BORDER);
+
+	        // Célula 2 - Data de Emissão
+	        PdfPCell cellDataEmissao = new PdfPCell(new Phrase("Data de Emissão: " + passagem.getData_emissao(), font));
+	        cellDataEmissao.setBorder(PdfPCell.NO_BORDER);
+
+	        // Célula 3 - Preço
+	        PdfPCell cellPreco = new PdfPCell(new Phrase("Preço: R$" + passagem.getPreco(), font));
+	        cellPreco.setBorder(PdfPCell.NO_BORDER);
+
+	        // Célula 4 - Data de Partida
+	        PdfPCell cellDataPartida = new PdfPCell(
+	                new Phrase("Data de Partida: " + passagem.getReserva().getData_partida(), font));
+	        cellDataPartida.setBorder(PdfPCell.NO_BORDER);
+
+	        // Célula 5 - Data de Retorno
+	        PdfPCell cellDataRetorno = new PdfPCell(
+	                new Phrase("Data de Retorno: " + passagem.getReserva().getData_chegada(), font));
+	        cellDataRetorno.setBorder(PdfPCell.NO_BORDER);
+
+	        // Célula 6 - Origem
+	        PdfPCell cellOrigem = new PdfPCell(new Phrase("Origem: " + passagem.getReserva().getOrigem(), font));
+	        cellOrigem.setBorder(PdfPCell.NO_BORDER);
+
+	        // Célula 7 - Destino
+	        PdfPCell cellDestino = new PdfPCell(new Phrase("Destino: " + passagem.getReserva().getDestino(), font));
+	        cellDestino.setBorder(PdfPCell.NO_BORDER);
+
+	        // Célula 8 - Assento
+	        PdfPCell cellAssento = new PdfPCell(new Phrase("Assento: " + passagem.getAssento(), font));
+	        cellAssento.setBorder(PdfPCell.NO_BORDER);
+
+	        // Adicione as células à tabela na ordem desejada
+	        tabela.addCell(cellCliente);
+	        tabela.addCell(cellDataPartida);
+	        tabela.addCell(cellOrigem);
+	        tabela.addCell(cellDataRetorno);
+	        tabela.addCell(cellDestino);
+	        tabela.addCell(cellAssento);
+	        tabela.addCell(cellDataEmissao);
+	        tabela.addCell(cellPreco);
+
+	        // Adicione a tabela ao documento
+	        documento.add(tabela);
+
+	        documento.close();
+
+	    } catch (Exception e) {
+	        e.printStackTrace();
+	        documento.close();
+	    }
+	}
+
+	
+	
 
 }

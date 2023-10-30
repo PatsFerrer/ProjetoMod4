@@ -392,6 +392,66 @@ public class PassagemDAO {
 				}
 				return passagem;
 			}
+			
+			// readById
+			public Passagem readPassagemById(int id) {
+			    Passagem passagem = null;
+			    String sql = "SELECT p.*, r.data_partida, r.data_chegada, r.origem, r.destino, c.nome AS nome_cliente " +
+			                 "FROM passagem p " +
+			                 "INNER JOIN reserva r ON p.id_reserva = r.id_reserva " +
+			                 "INNER JOIN cliente c ON r.id_cliente = c.id_cliente " +
+			                 "WHERE p.id_passagem = ?";
+
+			    Connection conn = null;
+			    PreparedStatement pstm = null;
+			    ResultSet rset = null;
+
+			    try {
+			        conn = ConnectionFactory.createConnectionToMySQL();
+			        pstm = conn.prepareStatement(sql);
+			        pstm.setInt(1, id);
+			        rset = pstm.executeQuery();
+
+			        if (rset.next()) {
+			            passagem = new Passagem();
+			            passagem.setId_passagem(rset.getInt("id_passagem"));
+			            passagem.setPreco(rset.getDouble("preco"));
+			            passagem.setData_emissao(rset.getDate("data_emissao"));
+			            passagem.setAssento(rset.getInt("assento"));
+
+			            Reserva reserva = new Reserva();
+			            reserva.setId_reserva(rset.getInt("id_reserva"));
+			            reserva.setData_partida(rset.getDate("data_partida"));
+			            reserva.setData_chegada(rset.getDate("data_chegada"));
+			            reserva.setOrigem(rset.getString("origem"));
+			            reserva.setDestino(rset.getString("destino"));
+
+			            Cliente cliente = new Cliente();
+			            cliente.setNome(rset.getString("nome_cliente"));
+
+			            passagem.setReserva(reserva);
+			            passagem.setCliente(cliente);
+			        }
+			    } catch (Exception e) {
+			        e.printStackTrace();
+			    } finally {
+			        try {
+			            if (rset != null) {
+			                rset.close();
+			            }
+			            if (pstm != null) {
+			                pstm.close();
+			            }
+			            if (conn != null) {
+			                conn.close();
+			            }
+			        } catch (Exception e) {
+			            e.printStackTrace();
+			        }
+			    }
+			    return passagem;
+			}
+
 
 		
 }

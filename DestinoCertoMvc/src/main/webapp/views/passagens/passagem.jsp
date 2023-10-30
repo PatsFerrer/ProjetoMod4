@@ -63,47 +63,54 @@
 				<div class="row gap">
 
 					<div class="col-12">
-					<label for="origem" class="col-form-label"><small>Origem</small></label>
-						<input readonly type="text" class="form-control" id="origem"
-							placeholder="origem" name="origem"
-							value="${reserva.origem}">
+						<label for="cliente" class="col-form-label"><small>Cliente</small></label>
+						<input readonly type="text" class="form-control" id="id_cliente"
+							placeholder="cliente" name="cliente"
+							value="${reserva.cliente.nome}">
 					</div>
-					
+
 					<div class="col-12">
-					<label for="origem" class="col-form-label"><small>Destino</small></label>
-						<input type="text" class="form-control" id="destino"
-							placeholder="destino" name="destino"
-							value="${reserva.destino}">
+						<label for="origem" class="col-form-label"><small>Origem</small></label>
+						<input readonly type="text" class="form-control" id="origem"
+							placeholder="origem" name="origem" value="${reserva.origem}">
 					</div>
-					
+
+					<div class="col-12">
+						<label for="origem" class="col-form-label"><small>Destino</small></label>
+						<input readonly type="text" class="form-control" id="destino"
+							placeholder="destino" name="destino" value="${reserva.destino}">
+					</div>
+
 
 					<div hidden class="col-12">
-					<label for="id_reserva" class="col-form-label"><small>Reserva</small></label>
+						<label for="id_reserva" class="col-form-label"><small>Reserva</small></label>
 						<input type="text" class="form-control" id="id_reserva"
 							placeholder="id_reserva" name="id_reserva"
 							value="${reserva.id_reserva}">
 					</div>
-					
+
 					<div hidden class="col-12">
-					<label for="id_cliente" class="col-form-label"><small>Cliente</small></label>
-						<input type="text" class="form-control" id="id_cliente"
+						<label for="id_cliente" class="col-form-label"><small>ID
+								Cliente</small></label> <input type="text" class="form-control" id="id_cliente"
 							placeholder="id_cliente" name="id_cliente"
 							value="${reserva.cliente.id_cliente}">
 					</div>
-					
-<%-- 					<%= request.getParameter("id_reserva")%> --%>
+
+
+
+					<%-- 					<%= request.getParameter("id_reserva")%> --%>
 					<div class="col-12">
-					<label for="preco" class="col-form-label"><small>Preço</small></label>
+						<label for="preco" class="col-form-label"><small>Preço</small></label>
 						<input type="text" class="form-control" id="preco"
 							placeholder="Valor da Passagem" name="preco"
 							value="${passagem.preco}">
 					</div>
 
 					<div class="col-12">
-					<label for="preco" class="col-form-label"><small>Assento</small></label>
+						<label for="preco" class="col-form-label"><small>Assento</small></label>
 						<input type="text" class="form-control" id="email"
 							placeholder="Assento" name="assento" value="${p.assento}">
-						
+
 					</div>
 
 
@@ -118,7 +125,7 @@
 
 
 	</div>
-	
+
 
 	<footer>
 		<img src="src/imagens/destinoCertoLogo.png"

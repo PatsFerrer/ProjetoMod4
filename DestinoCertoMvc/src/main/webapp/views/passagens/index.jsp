@@ -99,8 +99,7 @@
 							<td>${p.reserva.destino}</td>
 							<td>${p.assento}</td>
 
-							<td><a data-bs-toggle="modal"
-								href="passagem-edit?id_passagem=${r.id_passagem}"
+							<td><a href="report?id_passagem=${p.id_passagem}"
 								class="btn btn-primary">Imprimir</a> <!-- 							 <button class=" btn btn-primary btn-criar" type="button" data-bs-toggle="modal" -->
 								<!--             data-bs-target="#cadastro">Edt teste</button> -->
 
