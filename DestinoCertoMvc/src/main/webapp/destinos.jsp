@@ -56,7 +56,7 @@
       <div class="col-md-5 p-lg-3 mx-auto my-0">
         <h3 class="display-4 font-weight-normal">Nossos destinos!</h3>
         <p class="lead font-weight-normal">Destinos nacionais mais pesquisados.</p>
-        <a class="btn btn-outline-secondary" href="destinos.html#destinos">Saiba mais</a>
+        <a class="btn btn-outline-secondary" href="destinos.jsp#destinos">Saiba mais</a>
       </div>
     </div>
 
@@ -75,7 +75,7 @@
                 <div class="d-flex justify-content-between align-items-center">
                   <div class="btn-group">
                     <a class="btn btn-primary"
-                      href="pagamento.html">Reservar</a>
+                      href="./reserva">Reservar</a>
                   </div>
                   <small class="text-muted">Em até 12x</small>
                 </div>
@@ -93,7 +93,7 @@
                 <div class="d-flex justify-content-between align-items-center">
                   <div class="btn-group">
                     <a class="btn btn-primary" 
-                      href="pagamento.html">Reservar</a>
+                      href="./reserva">Reservar</a>
                   </div>
                   <small class="text-muted">Em até 12x</small>
                 </div>
@@ -111,7 +111,7 @@
                 <div class="d-flex justify-content-between align-items-center">
                   <div class="btn-group">
                     <a class="btn btn-primary" 
-                      href="pagamento.html">Reservar</a>
+                      href="./reserva">Reservar</a>
                   </div>
                   <small class="text-muted">Em até 12x</small>
                 </div>
@@ -129,7 +129,7 @@
                 <div class="d-flex justify-content-between align-items-center">
                   <div class="btn-group">
                     <a class="btn btn-primary" 
-                      href="pagamento.html">Reservar</a>
+                      href="./reserva">Reservar</a>
                   </div>
                   <small class="text-muted">Em até 12x</small>
                 </div>
@@ -147,7 +147,7 @@
                 <div class="d-flex justify-content-between align-items-center">
                   <div class="btn-group">
                     <a class="btn btn-primary" 
-                      href="pagamento.html">Reservar</a>
+                      href="./reserva">Reservar</a>
                   </div>
                   <small class="text-muted">Em até 12x</small>
                 </div>
@@ -165,7 +165,7 @@
                 <div class="d-flex justify-content-between align-items-center">
                   <div class="btn-group">
                     <a class="btn btn-primary" 
-                      href="pagamento.html">Reservar</a>
+                      href="./reserva">Reservar</a>
                   </div>
                   <small class="text-muted">Em até 12x</small>
                 </div>
@@ -183,7 +183,7 @@
                 <div class="d-flex justify-content-between align-items-center">
                   <div class="btn-group">
                     <a class="btn btn-primary" 
-                      href="pagamento.html">Reservar</a>
+                      href="./reserva">Reservar</a>
                   </div>
                   <small class="text-muted">Em até 12x</small>
                 </div>
@@ -201,7 +201,7 @@
                 <div class="d-flex justify-content-between align-items-center">
                   <div class="btn-group">
                     <a class="btn btn-primary" 
-                      href="pagamento.html">Reservar</a>
+                      href="./reserva">Reservar</a>
                   </div>
                   <small class="text-muted">Em até 12x</small>
                 </div>
@@ -219,7 +219,7 @@
                 <div class="d-flex justify-content-between align-items-center">
                   <div class="btn-group">
                     <a class="btn btn-primary" 
-                      href="pagamento.html">Reservar</a>
+                      href="./reserva">Reservar</a>
                   </div>
                   <small class="text-muted">Em até 12x</small>
                 </div>
@@ -237,8 +237,8 @@
     <div class="compra-segura">
       <strong>COMPRA SEGURA</strong>
       <a href="pagamento.html">Pagamentos</a>
-      <a href="contato.html">Fale Conosco</a>
-      <a href="promocoes.html">Black Friday</a>
+      <a href="contato.jsp">Fale Conosco</a>
+      <a href="promocoes.jsp">Black Friday</a>
     </div>
     <div class="contato">
       <strong>CONTATO</strong>

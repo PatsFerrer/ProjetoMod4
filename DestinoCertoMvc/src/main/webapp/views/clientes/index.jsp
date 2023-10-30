@@ -176,10 +176,11 @@
 		<img src="src/imagens/destinoCertoLogo.png"
 			alt="Imagem da Logo da Destino Certo">
 		<div class="compra-segura">
-			<strong>COMPRA SEGURA</strong> <a href="pagamento.html">Pagamentos</a>
-			<a href="contato.html">Fale Conosco</a> <a href="promocoes.html">Black
-				Friday</a>
-		</div>
+      		<strong>COMPRA SEGURA</strong>
+      		<a href="pagamento.html">Pagamentos</a>
+     		 <a href="contato.jsp">Fale Conosco</a>
+    		  <a href="promocoes.jsp">Black Friday</a>
+   		</div>
 		<div class="contato">
 			<strong>CONTATO</strong> <span><i class="ph ph-phone"></i> 85
 				3232-3232</span> <span><i class="ph ph-at"></i>

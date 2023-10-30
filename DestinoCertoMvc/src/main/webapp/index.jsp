@@ -331,7 +331,7 @@
 			alt="Imagem da Logo da Destino Certo">
 		<div class="compra-segura">
 			<strong>COMPRA SEGURA</strong> <a href="pagamento.html">Pagamentos</a>
-			<a href="contato.html">Fale Conosco</a> <a href="promocoes.html">Black
+			<a href="contato.jsp">Fale Conosco</a> <a href="promocoes.jsp">Black
 				Friday</a>
 		</div>
 		<div class="contato">

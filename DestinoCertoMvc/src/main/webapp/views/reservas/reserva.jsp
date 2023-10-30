@@ -96,7 +96,7 @@
 							<td>${r.cliente.nome}</td>
 
 							<td>
-							<button data-bs-target="#editarReserva${r.id_reserva}"
+								<button data-bs-target="#editarReserva${r.id_reserva}"
 									data-bs-toggle="modal" class="btn btn-primary mb-1">Editar</button>
 								<a href="reserva-delete?id_reserva=${r.id_reserva}"
 								onclick="return confirm('Deseja Excluir a Reserva ${r.id_reserva}?')"
@@ -104,7 +104,8 @@
 
 								<a class="btn btn-primary ml-auto"
 								href="./passagem-getCreate?id_reserva=${r.id_reserva}"
-								class="btn btn-primary"> Gerar Passagem </a></td>
+								class="btn btn-primary"> Gerar Passagem </a>
+							</td>
 
 
 						</tr>
@@ -319,7 +320,7 @@
 			alt="Imagem da Logo da Destino Certo">
 		<div class="compra-segura">
 			<strong>COMPRA SEGURA</strong> <a href="pagamento.html">Pagamentos</a>
-			<a href="contato.html">Fale Conosco</a> <a href="promocoes.html">Black
+			<a href="contato.jsp">Fale Conosco</a> <a href="promocoes.jsp">Black
 				Friday</a>
 		</div>
 		<div class="contato">
