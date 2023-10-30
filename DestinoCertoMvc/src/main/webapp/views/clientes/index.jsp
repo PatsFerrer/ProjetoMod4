@@ -92,7 +92,7 @@
 						<td>${c.telefone}</td>
 
 						<td><a href="cliente-edit?id_cliente=${c.id_cliente}"
-							class="btn btn-primary" >Editar</a>
+							class="btn btn-primary mb-1" >Editar</a>
 							<!-- 							 <button class=" btn btn-primary btn-criar" type="button" data-bs-toggle="modal" -->
 							<!--             data-bs-target="#cadastro">Edt teste</button> -->
 

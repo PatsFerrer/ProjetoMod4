@@ -95,11 +95,12 @@
 							<td>${r.data_chegada}</td>
 							<td>${r.cliente.nome}</td>
 
-							<td><button data-bs-target="#editarReserva${r.id_reserva}"
-									data-bs-toggle="modal" class="btn btn-primary">Editar</button>
+							<td>
+							<button data-bs-target="#editarReserva${r.id_reserva}"
+									data-bs-toggle="modal" class="btn btn-primary mb-1">Editar</button>
 								<a href="reserva-delete?id_reserva=${r.id_reserva}"
 								onclick="return confirm('Deseja Excluir a Reserva ${r.id_reserva}?')"
-								class="btn btn-danger">Excluir</a> <%-- 							ver se é update ou para href ./passagem-getCreate?id_reserva=${r.id_reserva}" --%>
+								class="btn btn-danger mb-1">Excluir</a> <%-- 							ver se é update ou para href ./passagem-getCreate?id_reserva=${r.id_reserva}" --%>
 
 								<a class="btn btn-primary ml-auto"
 								href="./passagem-getCreate?id_reserva=${r.id_reserva}"

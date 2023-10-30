@@ -98,17 +98,16 @@
 
 
 
-					<%-- 					<%= request.getParameter("id_reserva")%> --%>
 					<div class="col-12">
 						<label for="preco" class="col-form-label"><small>Preço</small></label>
-						<input type="text" class="form-control" id="preco"
+						<input required type="text" class="form-control" id="preco"
 							placeholder="Valor da Passagem" name="preco"
 							value="${passagem.preco}">
 					</div>
 
 					<div class="col-12">
 						<label for="preco" class="col-form-label"><small>Assento</small></label>
-						<input type="text" class="form-control" id="email"
+						<input required type="text" class="form-control" id="email"
 							placeholder="Assento" name="assento" value="${p.assento}">
 
 					</div>
@@ -116,7 +115,7 @@
 
 				</div>
 				<div class="d-flex justify-content-end gap-1 pt-3">
-					<button class=" btn btn-primary btn-lg" type="submit">Gerar</button>
+					<button class="btn btn-primary btn-lg" type="submit">Gerar</button>
 					<a href="./reserva" class=" btn btn-danger btn-lg">Cancelar</a>
 				</div>
 			</form>

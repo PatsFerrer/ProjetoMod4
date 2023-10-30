@@ -99,13 +99,12 @@
 							<td>${p.reserva.destino}</td>
 							<td>${p.assento}</td>
 
-							<td><a href="report?id_passagem=${p.id_passagem}"
-								class="btn btn-primary">Imprimir</a> <!-- 							 <button class=" btn btn-primary btn-criar" type="button" data-bs-toggle="modal" -->
-								<!--             data-bs-target="#cadastro">Edt teste</button> -->
-
-								<a href="passagem-delete?id_passagem=${p.id_passagem}"
+							<td> <a href="report?id_passagem=${p.id_passagem}"
+								class="btn btn-primary mb-1">Imprimir</a> <a
+								href="passagem-delete?id_passagem=${p.id_passagem}"
 								onclick="return confirm('Deseja Excluir a Passagem de ID ${p.id_passagem} de ${p.cliente.nome}?')"
 								class="btn btn-danger">Excluir</a>
+							</td>
 						</tr>
 					</jstl:forEach>
 
