@@ -170,14 +170,11 @@ public class Reserva {
 	    System.out.println("-------------------------");
 	}
 	
-	//teste
 	public void editarReserva(String origem, String destino, Date dataPartida, Date dataChegada) {
 	    this.origem = origem;
 	    this.destino = destino;
 	    this.data_partida = dataPartida;
 	    this.data_chegada = dataChegada;
-	    // Você pode adicionar a lógica para atualizar outros atributos, se necessário.
 	}
-
 
 }

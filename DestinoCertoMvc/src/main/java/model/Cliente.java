@@ -4,7 +4,6 @@ import java.util.Scanner;
 
 import dao.ClienteDAO;
 
-
 public class Cliente {
 	private int id_cliente;
 	private String nome; 
@@ -146,6 +145,5 @@ public class Cliente {
             return null;
         }              
     }
-    
 
 }

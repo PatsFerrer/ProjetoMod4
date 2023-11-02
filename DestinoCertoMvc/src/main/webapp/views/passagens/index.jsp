@@ -33,8 +33,6 @@
 					<span class="navbar-toggler-icon"></span>
 				</button>
 
-
-				<!-- editar aqui, adicionar os caminhois -->
 				<jsp:include page="../../components/menu.jsp">
 					<jsp:param name="home" value="./index.jsp" />
 					<jsp:param name="destinos" value="./destinos.jsp" />
@@ -50,14 +48,15 @@
 		</nav>
 	</header>
 
-	<!-- colocar uma capa maneira aqui-->
+	<div class="position-relative overflow-hidden text-center ">
+      <img class="capinha card-img-top" src="src/imagens/capaPassagem.jpg"
+        alt="Imagem de uma pessoa sentada no aeroporto olhando um avião decolar.">
+    </div>
 
 	<div class="container" style="padding: 30px;">
 
 		<div
 			style="display: flex; justify-content: center; align-items: center; gap: 5px;">
-
-
 
 			<i style="font-size: 40px;" class="ph ph-ticket"></i>
 
@@ -103,7 +102,7 @@
 								class="btn btn-primary mb-1">Imprimir</a> <a
 								href="passagem-delete?id_passagem=${p.id_passagem}"
 								onclick="return confirm('Deseja Excluir a Passagem de ID ${p.id_passagem} de ${p.cliente.nome}?')"
-								class="btn btn-danger">Excluir</a>
+								class="btn btn-danger mb-1">Excluir</a>
 							</td>
 						</tr>
 					</jstl:forEach>
@@ -111,8 +110,6 @@
 				</tbody>
 			</table>
 		</div>
-
-
 
 	</div>
 
@@ -145,14 +142,11 @@
 		</div>
 	</footer>
 
-
-
-
 	<script
 		src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"
 		integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz"
-		crossorigin="anonymous"></script>
-
+		crossorigin="anonymous">
+	</script>
 
 </body>
 

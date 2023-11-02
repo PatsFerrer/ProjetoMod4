@@ -4,7 +4,6 @@ import java.util.Scanner;
 
 import dao.ContatoDAO;
 
-
 public class Contato {
 
     private String nome;

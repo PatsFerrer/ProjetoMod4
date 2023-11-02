@@ -14,7 +14,7 @@
 <link rel="stylesheet" href="./src/styles/style.css">
 <link rel="stylesheet" href="./src/styles/mediaquery.css">
 <script src="https://unpkg.com/@phosphor-icons/web"></script>
-<title>Destino Certo - Passagem</title>
+<title>Destino Certo - Gerar Passagem</title>
 </head>
 
 <body class="min-vh-100 d-flex flex-column justify-content-between">
@@ -47,6 +47,11 @@
 			</div>
 		</nav>
 	</header>
+	
+	<div class="position-relative overflow-hidden text-center ">
+      <img class="capinha card-img-top" src="src/imagens/capaPassagem.jpg"
+        alt="Imagem de uma pessoa sentada no aeroporto olhando um avião decolar">
+    </div>
 
 	<div class="container" style="padding: 30px;">
 
@@ -55,7 +60,6 @@
 			<i style="font-size: 40px;" class="ph ph-ticket"></i>
 			<h1 class="text-center">Gerar Passagem</h1>
 		</div>
-
 
 		<div class="container">
 
@@ -96,8 +100,6 @@
 							value="${reserva.cliente.id_cliente}">
 					</div>
 
-
-
 					<div class="col-12">
 						<label for="preco" class="col-form-label"><small>Preço</small></label>
 						<input required type="text" class="form-control" id="preco"
@@ -112,7 +114,6 @@
 
 					</div>
 
-
 				</div>
 				<div class="d-flex justify-content-end gap-1 pt-3">
 					<button class="btn btn-primary btn-lg" type="submit">Gerar</button>
@@ -122,9 +123,7 @@
 
 		</div>
 
-
 	</div>
-
 
 	<footer>
 		<img src="src/imagens/destinoCertoLogo.png"
@@ -155,13 +154,11 @@
 		</div>
 	</footer>
 
-
-
 	<script
 		src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"
 		integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz"
-		crossorigin="anonymous"></script>
-
+		crossorigin="anonymous">
+	</script>
 
 </body>
 

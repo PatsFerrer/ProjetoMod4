@@ -33,7 +33,6 @@
 					aria-label="Toggle navigation">
 					<span class="navbar-toggler-icon"></span>
 				</button>
-				
 
 				<jsp:include page="./components/menu.jsp">
 					<jsp:param name="home" value="./index.jsp" />
@@ -45,12 +44,10 @@
 					<jsp:param name="clientes" value="./cliente" />
 					<jsp:param name="entrar" value="./entrar.jsp" />
 				</jsp:include>
-				
 
 			</div>
 		</nav>
 	</header>
-
 
 	<div id="carouselExampleCaptions" class="carousel slide carousel-fade">
 
@@ -330,9 +327,10 @@
 		<img src="src/imagens/destinoCertoLogo.png"
 			alt="Imagem da Logo da Destino Certo">
 		<div class="compra-segura">
-			<strong>COMPRA SEGURA</strong> <a href="pagamento.html">Pagamentos</a>
-			<a href="contato.jsp">Fale Conosco</a> <a href="promocoes.jsp">Black
-				Friday</a>
+			<strong>COMPRA SEGURA</strong> 
+			<a href="pagamento.html">Pagamentos</a>
+			<a href="contato.jsp">Fale Conosco</a> 
+			<a href="promocoes.jsp">Black Friday</a>
 		</div>
 		<div class="contato">
 			<strong>CONTATO</strong> <span><i class="ph ph-phone"></i> 85

@@ -35,8 +35,6 @@
 					<span class="navbar-toggler-icon"></span>
 				</button>
 
-
-				<!-- editar aqui, adicionar os caminhois -->
 				<jsp:include page="./components/menu.jsp">
 					<jsp:param name="home" value="./index.jsp" />
 					<jsp:param name="destinos" value="./destinos.jsp" />
@@ -52,13 +50,6 @@
 		</nav>
 	</header>
 
-
-
-
-
-
-
-
 	<div class="position-relative overflow-hidden">
 		<img class="capinha card-img-top mb-3" src="src/imagens/capa3.jpg"
 			alt="Imagem de uma moça vestindo um kimono oriental, com um guarda-chuva, em cima de uma montanha, com uma cachoeira ao fundo.">
@@ -70,13 +61,6 @@
 		<div class="container">
 			<div class="row">
 				<div class="col-md col-lg">
-
-					<!-- 					<div class="mensagem-sucesso"> -->
-					<%-- 						<c:if test="${not empty mensagem}"> --%>
-					<%--          			   ${mensagem} --%>
-					<%--       			  		</c:if> --%>
-					<!-- 					</div> -->
-
 
 					<%
 						String mensagem = (String) request.getAttribute("mensagem");
@@ -90,8 +74,6 @@
 					<%
 						}
 					%>
-
-
 
 					<form action="./contato" class="needs-validation">
 						<div class="row g-3">

@@ -309,7 +309,6 @@ public boolean hasReservasAtivas(int idCliente) {
     return false;
 }
 
-//readById
 	public Reserva readById(int id) {
 		Reserva reserva = new Reserva();
 		
@@ -363,7 +362,4 @@ public boolean hasReservasAtivas(int idCliente) {
 		return reserva;
 	}
 
-
-
-  
 }

@@ -33,8 +33,6 @@
 					<span class="navbar-toggler-icon"></span>
 				</button>
 
-
-				<!-- editar aqui, adicionar os caminhois -->
 				<jsp:include page="../../components/menu.jsp">
 					<jsp:param name="home" value="./index.jsp" />
 					<jsp:param name="destinos" value="./destinos.jsp" />
@@ -50,21 +48,22 @@
 		</nav>
 	</header>
 
-	<!-- colocar uma capa maneira aqui-->
+	<div class="position-relative overflow-hidden text-center ">
+      <img class="capinha card-img-top" src="src/imagens/capaCliente.jpg"
+        alt="Imagem de uma pessoa olhando os telões do aeroporto.">
+    </div>
 
-	<div class="container" style="padding: 30px;">
+	<div class="container" style="padding: 40px;">
 
 		<div style="display: flex; justify-content: center; align-items: center; gap: 5px;">
 			<i style="font-size: 40px;" class="ph ph-user-circle"></i>
 			<h1 class="text-center">Atualizar Cliente</h1>
 		</div>
 
-
 		<div class="container">
 
 			<form action="./cliente-update" class="needs-validation">
 				<div class="row g-3">
-				
 				
 					<div class="col-12">
 						<input type="text" class="form-control" id="id"
@@ -105,7 +104,6 @@
 
 		</div>
 
-
 	</div>
 
 	<footer>
@@ -137,14 +135,10 @@
 		</div>
 	</footer>
 
-
-
-
 	<script
 		src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"
 		integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz"
 		crossorigin="anonymous"></script>
-
 
 </body>
 

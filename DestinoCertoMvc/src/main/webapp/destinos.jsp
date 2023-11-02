@@ -30,7 +30,6 @@
 					<span class="navbar-toggler-icon"></span>
 				</button>
 				
-
 				<jsp:include page="./components/menu.jsp">
 					<jsp:param name="home" value="./index.jsp" />
 					<jsp:param name="destinos" value="./destinos.jsp" />
@@ -43,12 +42,10 @@
 					<jsp:param name="entrar" value="./entrar.jsp" />
 				</jsp:include>
 				
-
 			</div>
 		</nav>
 	</header>
   
-
   <main>
     <div class="position-relative overflow-hidden text-center ">
       <img class="capinha card-img-top" src="src/imagens/capa00.jpg"

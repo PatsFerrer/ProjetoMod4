@@ -12,7 +12,6 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import com.itextpdf.awt.geom.Rectangle;
 import com.itextpdf.text.BaseColor;
 import com.itextpdf.text.Document;
 import com.itextpdf.text.Element;
@@ -127,10 +126,7 @@ public class PassagemServlet extends HttpServlet {
 
 	protected void read(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
-		// fiz uma view nesse método listasTpodasPassagens
 		List<Passagem> lista = passagemDAO.listarTodasPassagens();
-
-		// fk aqui?
 
 		request.setAttribute("listaPassagens", lista);
 
@@ -163,7 +159,6 @@ public class PassagemServlet extends HttpServlet {
 		passagem.setPreco(Double.parseDouble(request.getParameter("preco")));
 		passagem.setAssento(Integer.parseInt(request.getParameter("assento")));
 
-//		coloquei FK reserva
 		passagem.setCliente(clienteDAO.readById(Integer.parseInt(request.getParameter("cliente"))));
 		passagem.setReserva(reservaDAO.readById(Integer.parseInt(request.getParameter("reserva"))));
 
@@ -200,87 +195,66 @@ public class PassagemServlet extends HttpServlet {
 	    Document documento = new Document();
 
 	    try {
-	        // Configurar o tipo de conteúdo
 	        response.setContentType("application/pdf");
 
-	        // Definir o nome do documento
 	        response.addHeader("Content-Disposition", "inline; filename=passagem.pdf");
 
-	        // Criar o documento
 	        PdfWriter.getInstance(documento, response.getOutputStream());
 
-	        // Abrir o documento para gerar o conteúdo
 	        documento.open();
 
-	        // Adicionar um logotipo ou imagem
 	        Image logo = Image.getInstance(getServletContext().getRealPath("src/imagens/destinoCertoLogo.png"));
 
 	        logo.setAlignment(Element.ALIGN_CENTER);
 	        logo.scaleAbsolute(100, 50); // Ajuste o tamanho da imagem conforme necessário
 	        documento.add(logo);
 
-	        // Adicionar um título
 	        Font titleFont = FontFactory.getFont(FontFactory.HELVETICA_BOLD, 24, BaseColor.BLACK);
 	        Paragraph title = new Paragraph("Passagem Aérea", titleFont);
 	        title.setAlignment(Element.ALIGN_CENTER);
 	        title.setSpacingAfter(10);
 	        documento.add(title);
 
-	        // Configurar a fonte para o texto
 	        Font font = FontFactory.getFont(FontFactory.HELVETICA_BOLD, 12, BaseColor.BLACK);
 
-	        // Crie uma tabela para o layout personalizado
 	        PdfPTable tabela = new PdfPTable(2); // 2 colunas
 	        tabela.setWidthPercentage(100);
 
-	        // Adicione bordas à tabela
 	        tabela.getDefaultCell().setBorder(PdfPCell.BOX);
 
-	        // Configure a cor de fundo das células do título
 	        tabela.getDefaultCell().setBackgroundColor(BaseColor.GRAY);
 
-	        // Defina a fonte para o título
 	        tabela.getDefaultCell().setHorizontalAlignment(Element.ALIGN_CENTER);
 	        tabela.getDefaultCell().setColspan(2);
 
-	        // Buscar a passagem com o ID especificado
 	        Passagem passagem = passagemDAO.readPassagemById(passagemId);
 
-	        // Célula 1 - Cliente
 	        PdfPCell cellCliente = new PdfPCell(new Phrase("Cliente: " + passagem.getCliente().getNome(), font));
 	        cellCliente.setBorder(PdfPCell.NO_BORDER);
 
-	        // Célula 2 - Data de Emissão
 	        PdfPCell cellDataEmissao = new PdfPCell(new Phrase("Data de Emissão: " + passagem.getData_emissao(), font));
 	        cellDataEmissao.setBorder(PdfPCell.NO_BORDER);
 
-	        // Célula 3 - Preço
 	        PdfPCell cellPreco = new PdfPCell(new Phrase("Preço: R$" + passagem.getPreco(), font));
 	        cellPreco.setBorder(PdfPCell.NO_BORDER);
 
-	        // Célula 4 - Data de Partida
 	        PdfPCell cellDataPartida = new PdfPCell(
 	                new Phrase("Data de Partida: " + passagem.getReserva().getData_partida(), font));
 	        cellDataPartida.setBorder(PdfPCell.NO_BORDER);
 
-	        // Célula 5 - Data de Retorno
 	        PdfPCell cellDataRetorno = new PdfPCell(
 	                new Phrase("Data de Retorno: " + passagem.getReserva().getData_chegada(), font));
 	        cellDataRetorno.setBorder(PdfPCell.NO_BORDER);
 
-	        // Célula 6 - Origem
 	        PdfPCell cellOrigem = new PdfPCell(new Phrase("Origem: " + passagem.getReserva().getOrigem(), font));
 	        cellOrigem.setBorder(PdfPCell.NO_BORDER);
 
-	        // Célula 7 - Destino
 	        PdfPCell cellDestino = new PdfPCell(new Phrase("Destino: " + passagem.getReserva().getDestino(), font));
 	        cellDestino.setBorder(PdfPCell.NO_BORDER);
 
-	        // Célula 8 - Assento
 	        PdfPCell cellAssento = new PdfPCell(new Phrase("Assento: " + passagem.getAssento(), font));
 	        cellAssento.setBorder(PdfPCell.NO_BORDER);
 
-	        // Adicione as células à tabela na ordem desejada
 	        tabela.addCell(cellCliente);
 	        tabela.addCell(cellDataPartida);
 	        tabela.addCell(cellOrigem);
@@ -290,7 +264,6 @@ public class PassagemServlet extends HttpServlet {
 	        tabela.addCell(cellDataEmissao);
 	        tabela.addCell(cellPreco);
 
-	        // Adicione a tabela ao documento
 	        documento.add(tabela);
 
 	        documento.close();
@@ -300,8 +273,5 @@ public class PassagemServlet extends HttpServlet {
 	        documento.close();
 	    }
 	}
-
 	
-	
-
 }

@@ -34,7 +34,6 @@
 					<span class="navbar-toggler-icon"></span>
 				</button>
 
-
 				<jsp:include page="./components/menu.jsp">
 					<jsp:param name="home" value="./index.jsp" />
 					<jsp:param name="destinos" value="./destinos.jsp" />
@@ -46,18 +45,15 @@
 					<jsp:param name="entrar" value="./entrar.jsp" />
 				</jsp:include>
 
-
 			</div>
 		</nav>
 	</header>
-
 
 	<main class="main-entrar background-img mb3"
 		style="height: 85vh; display: flex; align-items: center;">
 
 		<section class="container">
 
-			<!-- caixinha -->
 			<div class="container cadastro-cliente">
 				<form action="" class="needs-validation"
 					novalidate>
@@ -81,19 +77,16 @@
 
 					<hr class="my-2">
 
-					<button class="w-100 btn btn-primary btn-lg btn-criar"
-						type="button" data-bs-toggle="modal" data-bs-target="#cadastro">Criar
-						nova conta</button>
+					<button class="w-100 btn btn-primary btn-lg btn-criar" type="button" data-bs-toggle="modal" data-bs-target="#cadastro">Criar nova conta</button>
 
 				</form>
-			</div>
-			<!-- caixinha -->
+			</div> 
 
 		</section>
 
 	</main>
 
-	<!-- modal -->
+	<!-- modal Cadastro -->
 	<div class="modal fade" id="cadastro" tabindex="-1"
 		aria-labelledby="exampleModalLabel" aria-hidden="true">
 		<div class="modal-dialog modal-dialog-centered">
@@ -142,10 +135,7 @@
 
 			</div>
 		</div>
-	</div>
-	<!-- fim do modal -->
-
-
+	</div> <!-- fim do modal -->
 
 	<footer>
 		<img src="src/imagens/destinoCertoLogo.png"

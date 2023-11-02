@@ -14,7 +14,6 @@ public class ContatoDAO {
     public void save(Contato contato) {
 		String sql = "INSERT INTO contato(nome, email, mensagem) VALUES(?,?,?)";
 
-		
 		Connection conn = null;
 		PreparedStatement pstm = null;
 		
@@ -94,6 +93,5 @@ public class ContatoDAO {
 		return contatos;
 	}
      
-    
 }
 

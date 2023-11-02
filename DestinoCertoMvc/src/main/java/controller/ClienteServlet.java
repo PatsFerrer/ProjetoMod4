@@ -113,12 +113,5 @@ public class ClienteServlet extends HttpServlet {
 		response.sendRedirect("cliente");
 		
 	}
-	
-	
-	
-	
-	
-	
-	
 
 }

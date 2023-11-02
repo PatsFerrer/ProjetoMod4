@@ -135,8 +135,6 @@ public class PassagemDAO {
 				Passagem passagem = new Passagem();
 				passagem.setId_passagem(rset.getInt("id_passagem"));
 				passagem.setPreco(rset.getDouble("preco"));
-//				passagem.setId_reserva(rset.getInt("id_reserva"));
-				//ver se falta algo aqui
 				passagem.setData_emissao(rset.getDate("data_emissao"));
 				passagem.setAssento(rset.getInt("assento"));
 				passagens.add(passagem);
@@ -161,68 +159,6 @@ public class PassagemDAO {
 		return passagens;
 	}
 
-
-//	public List<Passagem> listarTodasPassagens() {
-//	    String sql = "SELECT p.*, r.data_partida, r.data_chegada, c.nome AS nome_cliente " +
-//	                 "FROM passagem p " +
-//	                 "INNER JOIN reserva r ON p.id_reserva = r.id_reserva " +
-//	                 "INNER JOIN cliente c ON r.id_cliente = c.id_cliente";
-//	    
-//	    List<Passagem> passagens = new ArrayList<>();
-//	    
-//	    Reserva reserva = new Reserva();
-//	    Connection conn = null;
-//	    PreparedStatement pstm = null;
-//	    ResultSet rset = null;
-//	    
-//	    try {
-//	        conn = ConnectionFactory.createConnectionToMySQL();
-//	        pstm = conn.prepareStatement(sql);
-//	        rset = pstm.executeQuery();
-//	    
-//	        while (rset.next()) {
-//	            Passagem passagem = new Passagem();
-//	            Cliente cliente = new Cliente();
-//	            
-//	            passagem.setId_passagem(rset.getInt("id_passagem"));
-//	            passagem.setPreco(rset.getDouble("preco"));
-//	            passagem.setData_emissao(rset.getDate("data_emissao"));
-//	            passagem.setAssento(rset.getInt("assento"));
-//	            
-//	            reserva.setId_reserva(rset.getInt("id_reserva"));
-//	            reserva.setData_partida(rset.getDate("data_partida"));
-//	            reserva.setData_chegada(rset.getDate("data_chegada"));
-////	            reserva.setOrigem(rset.getString("origem"));
-//	            
-//	            cliente.setNome(rset.getString("nome_cliente")); //talvez aqui seja so 'nome'
-//	            
-//	            passagem.setReserva(reserva);
-//	            passagem.setCliente(cliente);
-//	            
-//
-//	            passagens.add(passagem);
-//	        }
-//	    } catch (Exception e) {
-//	        e.printStackTrace();
-//	    } finally {
-//	        try {
-//	            if (rset != null) {
-//	                rset.close();
-//	            }
-//	            if (pstm != null) {
-//	                pstm.close();
-//	            }
-//	            if (conn != null) {
-//	                conn.close();
-//	            }
-//	        } catch (Exception e) {
-//	            e.printStackTrace();
-//	        }
-//	    }
-//	    return passagens;
-//	}
-	
-	
 	public List<Passagem> listarTodasPassagens() {
 	    String sql = "SELECT p.*, r.data_partida, r.data_chegada, r.origem, r.destino, c.nome AS nome_cliente " +
 	                 "FROM passagem p " +
@@ -261,7 +197,6 @@ public class PassagemDAO {
 	            passagem.setReserva(reserva);
 	            passagem.setCliente(cliente);
 	            
-
 	            passagens.add(passagem);
 	        }
 	    } catch (Exception e) {
@@ -343,7 +278,6 @@ public class PassagemDAO {
 	}
 	
 	
-	// readById
 			public Passagem readById(int id) {
 				Passagem passagem = new Passagem();
 				String sql = "select * from passagem WHERE id_passagem = ?";
@@ -373,8 +307,6 @@ public class PassagemDAO {
 					reserva.setId_reserva(rset.getInt("id_reserva"));
 					
 					passagem.setReserva(reserva);
-				
-					
 
 				} catch (Exception e) {
 					e.printStackTrace();
@@ -393,7 +325,6 @@ public class PassagemDAO {
 				return passagem;
 			}
 			
-			// readById
 			public Passagem readPassagemById(int id) {
 			    Passagem passagem = null;
 			    String sql = "SELECT p.*, r.data_partida, r.data_chegada, r.origem, r.destino, c.nome AS nome_cliente " +
@@ -452,6 +383,4 @@ public class PassagemDAO {
 			    return passagem;
 			}
 
-
-		
 }

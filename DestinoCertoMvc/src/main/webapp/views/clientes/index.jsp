@@ -33,8 +33,6 @@
 					<span class="navbar-toggler-icon"></span>
 				</button>
 
-
-				<!-- editar aqui, adicionar os caminhois -->
 				<jsp:include page="../../components/menu.jsp">
 					<jsp:param name="home" value="./index.jsp" />
 					<jsp:param name="destinos" value="./destinos.jsp" />
@@ -50,14 +48,15 @@
 		</nav>
 	</header>
 
-	<!-- colocar uma capa maneira aqui-->
+	<div class="position-relative overflow-hidden text-center ">
+      <img class="capinha card-img-top" src="src/imagens/capaCliente0.jpg"
+        alt="Imagem de uma pessoa olhando os telões do aeroporto.">
+    </div>
 
 	<div class="container" style="padding: 30px;">
 
 		<div
 			style="display: flex; justify-content: center; align-items: center; gap: 5px;">
-
-
 
 			<i style="font-size: 40px;" class="ph ph-user-circle"></i>
 
@@ -78,7 +77,6 @@
 					<th scope="col">Nome</th>
 					<th scope="col">Email</th>
 					<th scope="col">Telefone</th>
-					<!-- 					<th scope="col">Cliente</th> id ou nome do cliente aqui?  -->
 					<th scope="col">Ações</th>
 				</tr>
 			</thead>
@@ -91,17 +89,11 @@
 						<td>${c.email}</td>
 						<td>${c.telefone}</td>
 
-						<td><a href="cliente-edit?id_cliente=${c.id_cliente}"
-							class="btn btn-primary mb-1" >Editar</a>
-							<!-- 							 <button class=" btn btn-primary btn-criar" type="button" data-bs-toggle="modal" -->
-							<!--             data-bs-target="#cadastro">Edt teste</button> -->
+						<td>
+							<a href="cliente-edit?id_cliente=${c.id_cliente}" class="btn btn-primary mb-1" >Editar</a>
 
-							<a href="cliente-delete?id_cliente=${c.id_cliente}"
-							onclick="return confirm('Deseja excluir ${c.nome}?')"
-							class="btn btn-danger">Excluir</a></td>
-
-
-
+							<a href="cliente-delete?id_cliente=${c.id_cliente}" onclick="return confirm('Deseja excluir ${c.nome}?')" class="btn btn-danger mb-1">Excluir</a>
+						</td>
 
 					</tr>
 				</jstl:forEach>
@@ -109,12 +101,6 @@
 			</tbody>
 		</table>
 </div>
-
-
-
-
-
-
 
 		<!-- modal -->
 		<div class="modal fade" id="cadastro" tabindex="-1"
@@ -165,10 +151,7 @@
 
 				</div>
 			</div>
-		</div>
-		<!-- fim do modal -->
-
-
+		</div> <!-- fim do modal -->
 
 	</div>
 
@@ -201,14 +184,10 @@
 		</div>
 	</footer>
 
-
-
-
 	<script
 		src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"
 		integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz"
 		crossorigin="anonymous"></script>
-
 
 </body>
 

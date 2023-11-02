@@ -47,12 +47,8 @@ public class ContatoServlet extends HttpServlet {
 		contato.setMensagem(request.getParameter("mensagem"));
 
 		contatoDAO.save(contato);
-//		response.sendRedirect("index");
-//		response.sendRedirect(null);
-		
-		// Após salvar o contato com sucesso
-		request.setAttribute("mensagem", "Mensagem enviada com sucesso");
 
+		request.setAttribute("mensagem", "Mensagem enviada com sucesso");
 		
 		request.getRequestDispatcher("/contato.jsp").forward(request, response);
 

@@ -64,8 +64,6 @@ public class ReservaServlet extends HttpServlet {
 		}
 	}
 	
-
-
 	protected void read(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
 		List<Reserva> lista = reservaDAO.getReservas();
@@ -83,24 +81,17 @@ public class ReservaServlet extends HttpServlet {
 		reserva.setOrigem(request.getParameter("origem"));
 		reserva.setDestino(request.getParameter("destino"));
 
-		// Recupere o ID do cliente da solicitação
 		String clienteId = request.getParameter("id_cliente");
 
-
-		// Converta o ID do cliente para um inteiro
 		try {
 			int clienteIdInt = Integer.parseInt(clienteId);
 
-			// Agora, você precisa recuperar o objeto Cliente com base no ID
 			Cliente cliente = clienteDAO.readById(clienteIdInt);
 
-			// Defina o cliente na reserva
 			reserva.setCliente(cliente);
 
-			// Restante do seu código para definir as datas e salvar a reserva
 			String dataPartidaStr = request.getParameter("data-partida");
 			String dataChegadaStr = request.getParameter("data-chegada");
-
 
 			try {
 				Date dataPartida = sdf.parse(dataPartidaStr);
@@ -159,73 +150,6 @@ public class ReservaServlet extends HttpServlet {
 	}
 	
 	
-//	protected void update(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-//	    // Recupere o ID da reserva da solicitação
-//	    String reservaId = request.getParameter("id_reserva");
-//
-//	    if (reservaId != null && !reservaId.isEmpty()) {
-//	        try {
-//	            int reservaIdInt = Integer.parseInt(reservaId);
-//
-//	            // Agora, você precisa recuperar o objeto Reserva com base no ID
-//	            Reserva reserva = reservaDAO.readById(reservaIdInt);
-//
-//	            // Recupere o ID do cliente da solicitação
-//	            String clienteId = request.getParameter("id_cliente");
-//
-//	            if (clienteId != null && !clienteId.isEmpty()) {
-//	                try {
-//	                    int clienteIdInt = Integer.parseInt(clienteId);
-//
-//	                    // Agora, você precisa recuperar o objeto Cliente com base no ID
-//	                    Cliente cliente = clienteDAO.readById(clienteIdInt);
-//
-//	                    // Restante do seu código para definir as datas e salvar a reserva
-//	                    String dataPartidaStr = request.getParameter("data-ida");
-//	                    String dataChegadaStr = request.getParameter("data-volta");
-//
-//	                    SimpleDateFormat sdfDataPartida = new SimpleDateFormat("yyyy-MM-dd");
-//	                    SimpleDateFormat sdfDataChegada = new SimpleDateFormat("yyyy-MM-dd");
-//
-//	                    try {
-//	                        Date dataPartida = sdfDataPartida.parse(dataPartidaStr);
-//	                        Date dataChegada = sdfDataChegada.parse(dataChegadaStr);
-//
-//	                        // Agora, você pode configurar os detalhes da reserva
-//	                        reserva.setOrigem(request.getParameter("origem"));
-//	                        reserva.setDestino(request.getParameter("destino"));
-//	                        reserva.setCliente(cliente);
-//	                        reserva.setData_partida(dataPartida);
-//	                        reserva.setData_chegada(dataChegada);
-//
-//	                        // Salve a reserva atualizada no banco de dados
-//	                        reservaDAO.update(reserva);
-//
-//	                        // Redirecione para a página correta após a atualização
-//	                        response.sendRedirect("reserva");
-//
-//	                    } catch (ParseException e) {
-//	                        e.printStackTrace();
-//	                    }
-//
-//	                } catch (NumberFormatException e) {
-//	                    // Lidar com o caso em que o ID do cliente não é um número válido
-//	                    // Por exemplo, redirecione para uma página de erro ou exiba uma mensagem de erro.
-//	                }
-//	            } else {
-//	                // Lidar com o caso em que o parâmetro "id_cliente" está vazio ou nulo
-//	                // Isso pode envolver redirecionar para uma página de erro ou exibir uma mensagem de erro.
-//	            }
-//	        } catch (NumberFormatException e) {
-//	            // Lidar com o caso em que o ID da reserva não é um número válido
-//	            // Por exemplo, redirecione para uma página de erro ou exiba uma mensagem de erro.
-//	        }
-//	    } else {
-//	        // Lidar com o caso em que o parâmetro "id" está vazio ou nulo
-//	        // Isso pode envolver redirecionar para uma página de erro ou exibir uma mensagem de erro.
-//	    }
-//	}
-	
 	protected void update(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 	   
 		reserva.setId_reserva(Integer.parseInt(request.getParameter("id_reserva")));
@@ -245,67 +169,4 @@ public class ReservaServlet extends HttpServlet {
 	    
 	}
 
-
-
-
-	
-	
-	//do cris
-	
-//	protected void update(HttpServletRequest request, HttpServletResponse response)
-//			throws ServletException, IOException {
-//		
-//		reserva.setId_reserva(Integer.parseInt(request.getParameter("id"))); //ver se aqui é id_reserva
-//		
-//		reserva.setOrigem(request.getParameter("origem"));
-//		reserva.setDestino(request.getParameter("destino"));
-//
-//		// Recupere o ID do cliente da solicitação
-//		String clienteId = request.getParameter("id_cliente");
-//
-//		// Verifique se o ID do cliente não é nulo
-//
-//		// Converta o ID do cliente para um inteiro
-//		try {
-//			int clienteIdInt = Integer.parseInt(clienteId);
-//
-//			// Agora, você precisa recuperar o objeto Cliente com base no ID
-//			Cliente cliente = clienteDAO.readById(clienteIdInt);
-//
-//			// Defina o cliente na reserva
-//			reserva.setCliente(cliente);
-//
-//			// Restante do seu código para definir as datas e salvar a reserva
-//			String dataPartidaStr = request.getParameter("data-ida");
-//			String dataChegadaStr = request.getParameter("data-volta");
-//
-//			SimpleDateFormat sdfDataPartida = new SimpleDateFormat("yyyy-MM-dd");
-//			SimpleDateFormat sdfDataChegada = new SimpleDateFormat("yyyy-MM-dd");
-//
-//			try {
-//				Date dataPartida = sdfDataPartida.parse(dataPartidaStr);
-//				reserva.setData_partida(dataPartida);
-//
-//				Date dataChegada = sdfDataChegada.parse(dataChegadaStr);
-//				reserva.setData_chegada(dataChegada);
-//
-//				reservaDAO.update(reserva);
-//				response.sendRedirect("reserva");
-//			} catch (ParseException e) {
-//				e.printStackTrace();
-//			}
-//
-//		} catch (NumberFormatException e) {
-//			// Lidar com o caso em que o ID do cliente não é um número válido
-//			// Por exemplo, redirecione para uma página de erro ou exiba uma mensagem de
-//			// erro.
-//		}
-//		
-//	}
-
-	
-	
-	
-	
-	
 }

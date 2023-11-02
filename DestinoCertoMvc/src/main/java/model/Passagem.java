@@ -57,8 +57,6 @@ public class Passagem {
 		this.reserva = reserva;
 	}
 
-
-
 	public int getId_passagem() {
 		return id_passagem;
 	}
@@ -137,8 +135,6 @@ public class Passagem {
 	    }
 	}
 
-		
-
 	public static void VerSuaPassagem(Scanner scanner, PassagemDAO passagemDAO, int id_cliente) {
 
 	    List<Passagem> passagens = passagemDAO.getPassagensByCliente(id_cliente);
@@ -171,6 +167,4 @@ public class Passagem {
 	    }
 	}
 
-	
-		    
 }

@@ -33,8 +33,6 @@
 					<span class="navbar-toggler-icon"></span>
 				</button>
 
-
-
 				<jsp:include page="../../components/menu.jsp">
 					<jsp:param name="home" value="./index.jsp" />
 					<jsp:param name="destinos" value="./destinos.jsp" />
@@ -50,11 +48,13 @@
 		</nav>
 	</header>
 
-	<!-- colocar uma capa maneira aqui-->
+	<div class="position-relative overflow-hidden text-center ">
+      <img class="capinha card-img-top" src="src/imagens/capaReserva.jpg"
+        alt="Imagem de um avião se preparando para decolar.">
+    </div>
 
 	<div class="container" style="padding: 30px;">
-		<%-- 		<h1>Bem-vindo, ${cliente.nome}</h1> --%>
-		<%-- colocar  nome doi cliente aqui --%>
+
 		<div
 			style="display: flex; justify-content: center; align-items: center; gap: 5px;">
 
@@ -63,7 +63,6 @@
 				style="display: flex; align-items: center; justify-content: space-between;">
 				<h1 class="text-center">Reservas</h1>
 
-				<!-- 				colocar href de criar reserva -->
 				<a data-bs-toggle="modal" href="" class="btn btn-primary"
 					data-bs-target="#cadastro"> Criar Reserva </a>
 
@@ -96,18 +95,12 @@
 							<td>${r.cliente.nome}</td>
 
 							<td>
-								<button data-bs-target="#editarReserva${r.id_reserva}"
-									data-bs-toggle="modal" class="btn btn-primary mb-1">Editar</button>
-								<a href="reserva-delete?id_reserva=${r.id_reserva}"
-								onclick="return confirm('Deseja Excluir a Reserva ${r.id_reserva}?')"
-								class="btn btn-danger mb-1">Excluir</a> <%-- 							ver se é update ou para href ./passagem-getCreate?id_reserva=${r.id_reserva}" --%>
+								<button data-bs-target="#editarReserva${r.id_reserva}" data-bs-toggle="modal" class="btn btn-primary mb-1">Editar</button>
+								
+								<a href="reserva-delete?id_reserva=${r.id_reserva}" onclick="return confirm('Deseja Excluir a Reserva ${r.id_reserva}?')" class="btn btn-danger mb-1">Excluir</a> 
 
-								<a class="btn btn-primary ml-auto"
-								href="./passagem-getCreate?id_reserva=${r.id_reserva}"
-								class="btn btn-primary"> Gerar Passagem </a>
+								<a class="btn btn-primary ml-auto mb-1" href="./passagem-getCreate?id_reserva=${r.id_reserva}"> Gerar Passagem </a>
 							</td>
-
-
 						</tr>
 
 						<!-- modal editar -->
@@ -209,9 +202,7 @@
 
 								</div>
 							</div>
-						</div>
-						<!-- fim do modal -->
-
+						</div> <!-- fim do modal editar-->
 
 					</jstl:forEach>
 
@@ -219,7 +210,7 @@
 			</table>
 		</div>
 
-		<!-- modal CRIAR-->
+		<!-- modal Criar-->
 		<div class="modal fade" id="cadastro" tabindex="-1"
 			aria-labelledby="exampleModalLabel" aria-hidden="true">
 			<div class="modal-dialog modal-dialog-centered">
@@ -305,13 +296,7 @@
 
 				</div>
 			</div>
-		</div>
-		<!-- fim do modal -->
-
-
-
-
-
+		</div> <!-- fim do modal criar-->
 
 	</div>
 
@@ -343,14 +328,10 @@
 		</div>
 	</footer>
 
-
-
-
 	<script
 		src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"
 		integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz"
 		crossorigin="anonymous"></script>
-
 
 </body>
 
