@@ -126,7 +126,6 @@ public class ClienteDAO {
 	    }
 	}
 	
-	// readById
 		public Cliente readById(int id) {
 			Cliente cliente = new Cliente();
 			String sql = "select * from cliente WHERE id_cliente = ?";
