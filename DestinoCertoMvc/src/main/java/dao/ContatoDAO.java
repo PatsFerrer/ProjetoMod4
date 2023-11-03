@@ -65,6 +65,7 @@ public class ContatoDAO {
 			while(rset.next()) {
 				Contato contato = new Contato();
 				
+				contato.setId_contato(rset.getInt("id_contato"));				
 				contato.setNome(rset.getString("nome"));				
 				contato.setEmail(rset.getString("email"));				
 				contato.setMensagem(rset.getString("mensagem"));
@@ -92,6 +93,39 @@ public class ContatoDAO {
 		}
 		return contatos;
 	}
+    
+ 	public void delete(int id) {
+ 		String sql = "DELETE FROM contato WHERE id_contato = ?";
+
+ 		Connection conn = null;
+ 		PreparedStatement pstm = null;
+
+ 		try {
+
+ 			conn = ConnectionFactory.createConnectionToMySQL();
+
+ 			pstm = conn.prepareStatement(sql);
+
+ 			pstm.setInt(1, id);
+
+ 			pstm.execute();
+
+ 		} catch (Exception e) {
+ 			e.printStackTrace();
+ 		} finally {
+ 			try {
+ 				if (pstm != null) {
+ 					pstm.close();
+ 				}
+ 				if (conn != null) {
+ 					conn.close();
+ 				}
+ 			} catch (Exception e) {
+ 				e.printStackTrace();
+ 			}
+ 		}
+
+ 	}
      
 }
 
