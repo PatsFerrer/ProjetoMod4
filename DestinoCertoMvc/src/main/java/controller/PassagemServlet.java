@@ -184,7 +184,7 @@ public class PassagemServlet extends HttpServlet {
 	protected void gerarPassagem(HttpServletRequest request, HttpServletResponse response)
 	        throws ServletException, IOException {
 
-	    int passagemId = Integer.parseInt(request.getParameter("id_passagem")); // Obtenha o ID da passagem
+	    int passagemId = Integer.parseInt(request.getParameter("id_passagem"));
 
 	    Document documento = new Document();
 
@@ -200,7 +200,7 @@ public class PassagemServlet extends HttpServlet {
 	        Image logo = Image.getInstance(getServletContext().getRealPath("src/imagens/destinoCertoLogo.png"));
 
 	        logo.setAlignment(Element.ALIGN_CENTER);
-	        logo.scaleAbsolute(100, 50); // Ajuste o tamanho da imagem conforme necessário
+	        logo.scaleAbsolute(100, 50);
 	        documento.add(logo);
 
 	        Font titleFont = FontFactory.getFont(FontFactory.HELVETICA_BOLD, 24, BaseColor.BLACK);
@@ -211,7 +211,7 @@ public class PassagemServlet extends HttpServlet {
 
 	        Font font = FontFactory.getFont(FontFactory.HELVETICA_BOLD, 12, BaseColor.BLACK);
 
-	        PdfPTable tabela = new PdfPTable(2); // 2 colunas
+	        PdfPTable tabela = new PdfPTable(2);
 	        tabela.setWidthPercentage(100);
 
 	        tabela.getDefaultCell().setBorder(PdfPCell.BOX);
