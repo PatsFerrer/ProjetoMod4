@@ -110,12 +110,6 @@ public class PassagemServlet extends HttpServlet {
 	protected void getCreate(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 
-//		List<Cliente> listaClientes = clienteDAO.getClientes();
-//		request.setAttribute("listaClientes", listaClientes);
-//		
-//		List<Reserva> listaReservas = reservaDAO.getReservas();
-//		request.setAttribute("listaReservas", listaReservas);
-
 		reserva = reservaDAO.readById(Integer.parseInt(request.getParameter("id_reserva")));
 		request.setAttribute("reserva", reserva);
 
