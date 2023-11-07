@@ -39,7 +39,7 @@ Esse projeto foi desenvolvido com as seguintes tecnologias:
     - Caso a Reserva tenha Passagens criadas, ela não poderá ser excluída.
  
 - Gerar Passagens
-    - Gerada a partir de uma Reserva existente. 
+    - Gerada à partir de uma Reserva existente. 
 - Listar Passagens
     - Mostra a lista com todas as Passagens.
 - Excluir Passagem
@@ -66,7 +66,7 @@ Print de parte da pasta extraída: <br>
 ![arquivo](https://github.com/PatsFerrer/ProjetoMod4/assets/124654139/c58fb36f-075b-4e1e-9e04-9698549e4f24)
 
 Arraste apenas o arquivo 'itextpdf-5.5.13.3' para a pasta 'lib' (dentro de src -> main -> webapp -> WEB-INF -> lib)<br>
-![path](https://github.com/PatsFerrer/ProjetoMod4/assets/124654139/bc9c843a-ac9a-430b-a96a-0bc344287653)
+![path](https://github.com/PatsFerrer/ProjetoMod4/assets/124654139/bc9c843a-ac9a-430b-a96a-0bc344287653) <br>
 E pronto!
 ## 🏷️ Layout
 
