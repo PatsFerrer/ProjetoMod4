@@ -60,5 +60,7 @@ Esse projeto foi desenvolvido com as seguintes tecnologias:
 ## 🏷️ Layout
 
 <div style="position: relative; padding-bottom: 53.75%; height: 0;">
-  https://www.loom.com/embed/9dde1cc14c5b4e03a376174a603f9ba6?sid=c113c5b8-e2e1-4e6e-9e1f-e0a6df9d9282
+
+https://github.com/PatsFerrer/ProjetoMod4/assets/124654139/2418c3e4-4ffe-4032-ab50-e9b60985bd55
+
 </div>
