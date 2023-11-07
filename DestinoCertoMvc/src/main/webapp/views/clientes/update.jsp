@@ -53,7 +53,7 @@
         alt="Imagem de uma pessoa olhando os telões do aeroporto.">
     </div>
 
-	<div class="container" style="padding: 40px;">
+	<div class="container" style="padding: 55px;">
 
 		<div style="display: flex; justify-content: center; align-items: center; gap: 5px;">
 			<i style="font-size: 40px;" class="ph ph-user-circle"></i>
