@@ -60,7 +60,7 @@ Link da Biblioteca: https://github.com/itext/itextpdf/releases/tag/5.5.13.3 <br>
 ![lib](https://github.com/PatsFerrer/ProjetoMod4/assets/124654139/45fb3785-fc14-477c-bff8-bf1936c2227a)
 
 Versão que usei: itextpdf-5.5.13.3 (itextpdf-5.5.13.3.zip) <br>
-Para que a geração de passagens funcione é necessário baixar a biblioteca e depois extrair o arquivo. <br>
+Para que a geração de passagens funcione é necessário baixar a biblioteca e depois extrair a pasta. <br>
 Após extrair, usei apenas o arquivo 'itextpdf-5.5.13.3' <br>
 Print de parte da pasta extraída: <br>
 ![arquivo](https://github.com/PatsFerrer/ProjetoMod4/assets/124654139/c58fb36f-075b-4e1e-9e04-9698549e4f24)
