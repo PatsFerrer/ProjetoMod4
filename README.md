@@ -60,5 +60,5 @@ Esse projeto foi desenvolvido com as seguintes tecnologias:
 ## 🏷️ Layout
 
 <div style="position: relative; padding-bottom: 53.75%; height: 0;">
-  <iframe src="https://www.loom.com/embed/9dde1cc14c5b4e03a376174a603f9ba6?sid=c113c5b8-e2e1-4e6e-9e1f-e0a6df9d9282" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;"></iframe>
+  https://www.loom.com/embed/9dde1cc14c5b4e03a376174a603f9ba6?sid=c113c5b8-e2e1-4e6e-9e1f-e0a6df9d9282
 </div>
