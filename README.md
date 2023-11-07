@@ -48,7 +48,7 @@ Esse projeto foi desenvolvido com as seguintes tecnologias:
 - Excluir Passagem
     - Apaga a Passagem
 - Imprimir Passagem
-    - Gera um PDF da passagem contendo as informações
+    - Gera um PDF da passagem contendo as informações <br>
 ![passagem](https://github.com/PatsFerrer/ProjetoMod4/assets/124654139/4c2b4b00-7334-44d4-bd6a-bdcde03680e7)
 
 
@@ -56,6 +56,20 @@ Esse projeto foi desenvolvido com as seguintes tecnologias:
 - Listar Mensagens
     - Para ver a listagem de Contatos, é necessário enviar uma mensagem para que a lista apareça.
 - Excluir Mensagens
+
+## ⚙️iText
+Para gerar passagens, usei a biblioteca 'itextpdf' para gerar os PDFs de Passagens.
+Link da Biblioteca: https://github.com/itext/itextpdf/releases/tag/5.5.13.3 <br>
+![lib](https://github.com/PatsFerrer/ProjetoMod4/assets/124654139/45fb3785-fc14-477c-bff8-bf1936c2227a)
+
+Versão que usei: itextpdf-5.5.13.3 (itextpdf-5.5.13.3.zip)
+Para que a geração de passagens funcione é necessário baixar a biblioteca e depois extrair o arquivo.
+Após extrair, usei apenas o arquivo 'itextpdf-5.5.13.3' 
+print de parte da pasta extraída: <br>
+![arquivo](https://github.com/PatsFerrer/ProjetoMod4/assets/124654139/c58fb36f-075b-4e1e-9e04-9698549e4f24)
+
+Arraste apenas o arquivo 'itextpdf-5.5.13.3' para a pasta 'lib' (dentro de src -> main -> webapp -> WEB-INF -> lib)<br>
+![path](https://github.com/PatsFerrer/ProjetoMod4/assets/124654139/bc9c843a-ac9a-430b-a96a-0bc344287653)
 
 ## 🏷️ Layout
 
