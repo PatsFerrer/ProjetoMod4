@@ -49,7 +49,8 @@ Esse projeto foi desenvolvido com as seguintes tecnologias:
     - Apaga a Passagem
 - Imprimir Passagem
     - Gera um PDF da passagem contendo as informações
-![passagem](https://github.com/PatsFerrer/ProjetoMod4/assets/124654139/4974cbd8-cb93-4fc6-a03f-8005ca5135a4)
+![passagem](https://github.com/PatsFerrer/ProjetoMod4/assets/124654139/4c2b4b00-7334-44d4-bd6a-bdcde03680e7)
+
 
 - Enviar Mensagem (Contato)
 - Listar Mensagens
