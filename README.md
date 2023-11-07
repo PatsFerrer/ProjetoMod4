@@ -20,9 +20,6 @@ Esse projeto foi desenvolvido com as seguintes tecnologias:
 - Git e GitHub
 
 ## 🛠️ Features
-
-![Menu](image-1.png)
-
 - Cadastrar Cliente
   - Cadastra um novo usuário (nome, email, senha e telefone);
 - Listar Clientes
